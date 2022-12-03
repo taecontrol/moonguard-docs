@@ -51,6 +51,7 @@ const config = {
         logo: {
           alt: "Larastats Logo",
           src: "img/logo.svg",
+          srcDark: "img/logoDark.svg",
         },
         items: [
           {
