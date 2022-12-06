@@ -4,46 +4,38 @@ slug: /
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting Started
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the **Larastats** documentation!
 
-## Getting Started
+If you're new to Larastats, we recommend read this page before diving into deeper subjects on your way to using Larastats.
 
-Get started by **creating a new site**.
+If you feel like a pro and want to go directly to press commands on your terminal go to **[installation page](./installation)**.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Overview
 
-### What you'll need
+Larastats is a package written in PHP that aims to provide utilities to monitor your sites in production, here are some of the utilities provided in the latest release:
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- **Check uptime**: Validate if your server is up or down.
+- **Check SSL Certificate**: Validate if your site SSL Certificate is expired or missing.
+- **Exception Logging**: Log your sites exceptions.
 
-## Generate a new site
+Larastats has been developed to be compatible with Laravel +9 and Filament v2.
 
-Generate a new Docusaurus site using the **classic template**.
+## Requirements
+Larastats has some requirements you should be aware of:
 
-The classic template will automatically be added to your project after you run the command:
+- Laravel Framework 9.0+
+- Composer
+- Node.js (Version 16+)
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+## Frenquently Asked Questions
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- **Where can I buy a license for Larastats?** <br />
+In order to buy a license for this package you need to [sign up](https://larastats.com/register) and [subscribe](https://larastats.com/billing) to a plan related to Larastats.
+- **Is Filament mandatory to install in my Laravel project?** <br />
+No. We are developing Larastats in such a flexible way that you can develop your own interface with the strategy that you prefer.
+- **Does this package needs to run migrations?** <br />
+Yes. Larastats includes several migrations to store data and function correctly, you can read about it in the Installation section.
+- **Why the developer team is so cool?** <br/>
+Thanks!! we excercise to be cool everyday 😎.
