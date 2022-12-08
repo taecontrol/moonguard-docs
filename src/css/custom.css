@@ -15,7 +15,7 @@
   --ifm-color-primary-lighter: #484851;
   --ifm-color-primary-lightest: #52525b;
   --ifm-link-color: #16a34a;
-  --ifm-code-font-size: 95%;
+  --ifm-code-font-size: 80%;
   --ifm-font-family-base: 'Inter';
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }

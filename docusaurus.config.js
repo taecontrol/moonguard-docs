@@ -67,6 +67,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Larastats.`,
       },
       prism: {
+        additionalLanguages: ['php', 'bash'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
