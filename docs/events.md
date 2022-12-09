@@ -8,35 +8,37 @@ sidebar_position: 4
 
 Larastats has a set of events that are dispatched according to the service or functionality being executed:
 
-### \Taecontrol\Larastats\Events\UptimeCheckFailedEvent::class
+### UptimeCheckFailedEvent
 
 This event is fired when the Uptime Check for a site fails. If your site is down - unreachable this will be dispatched.
 
-### \Taecontrol\Larastats\Events\UptimeCheckRecoveredEvent::class
+### UptimeCheckRecoveredEvent
 
 This event is fired when the Uptime Check for a site is recovered. If your site was previously in downtime and it's available again this will be dispatched.
 
-### \Taecontrol\Larastats\Events\RequestTookLongerThanMaxDurationEvent::class
+### RequestTookLongerThanMaxDurationEvent
 
 This event is fired when a request took longer than a maximum duration.
 
-### \Taecontrol\Larastats\Events\SslCertificateExpiresSoonEvent::class
+### SslCertificateExpiresSoonEvent
 
 This event is fired when a SSL Certificate expiration date is soon.
 
-### \Taecontrol\Larastats\Events\SslCertificateCheckFailedEvent::class
+### SslCertificateCheckFailedEvent
 
 This event is fired when a SSL Certificate check fails. This may be triggered if a SSL Certificate is invalid.
 
-### \Taecontrol\Larastats\Events\ExceptionLogGroupCreatedEvent::class
+### ExceptionLogGroupCreatedEvent
 
 This event is fired when a new Exception log group is created.
 
-### \Taecontrol\Larastats\Events\ExceptionLogGroupUpdatedEvent::class
+### ExceptionLogGroupUpdatedEvent
 
 This event is fired when an existing Exception Log Group is updated. Useful when we receive a batch of exceptions that are repeated
 
-<br />
+:::tip Namespace
+All the mentioned events use the namespace: `Taecontrol\Larastats\Events\<Event::class>`
+:::
 
 ## Extending Listeners
 
