@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Larastats",
   tagline: "Monitoring in no-crazy mode",
-  url: "https://docs.larastats.com",
-  baseUrl: "/",
+  url: "https://taecontrol.github.io/",
+  baseUrl: "/larastats-docs/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
