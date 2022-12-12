@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Getting Started
 
-Welcome to the **Larastats** documentation!!!
+Welcome to the **Larastats** documentation!
 
 If you're new to Larastats, we recommend read this page before diving into deeper subjects on your way to using Larastats.
 
