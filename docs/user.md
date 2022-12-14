@@ -1,11 +1,11 @@
 ---
-id: user-model
-slug: /user-model
-sidebar_position: 1
+id: users
+slug: /users
+sidebar_position: 7
 ---
 
-# User model
-Larastats ships with a _**standard-basic**_ user model, It's not mandatory to use our model, it's most likely that you use the user model of your project.
+# Users
+Larastats comes with its own user model (it have a default structure with some modifications) however, you will most likely want to use your project's user model. If that's the case, the next section will help you make the change on Larastats.
 
 ## Custom User Model
 

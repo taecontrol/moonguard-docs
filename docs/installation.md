@@ -77,7 +77,9 @@ At this point you should have two service providers registered in `config/app.ph
 If you don't intend to use Filament, you should remove **_LarastatsFilamentServiceProvider::class_** from your app providers array.
 :::
 
-Finally, we're going to publish the migration and configuration file:
+## Migrations and Configuration file
+
+To publish the migrations and the configuration file use:
 
 ```bash
 php artisan vendor:publish --tag="larastats-migrations"
@@ -88,4 +90,12 @@ You will be able to find a migration file `create_larastats_table.php` in your `
 
 ```bash
 php artisan migrate
+```
+
+## Queues and Workers
+
+We use queues on notifications so we recommend you to configure redis in your project. Then run a worker:
+
+```bash
+php artisan queue:work
 ```
