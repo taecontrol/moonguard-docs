@@ -7,8 +7,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 const config = {
   title: "Larastats",
   tagline: "Don't miss your site status.",
-  url: "https://taecontrol.github.io/",
-  baseUrl: "/larastats-docs/",
+  url: "https://docs.larastats.dev/",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
