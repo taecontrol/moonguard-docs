@@ -1,13 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const darkCodeTheme = require("prism-react-renderer/themes/palenight");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Larastats",
-  tagline: "Monitoring in no-crazy mode",
+  tagline: "Don't miss your site status.",
   url: "https://taecontrol.github.io/",
   baseUrl: "/larastats-docs/",
   onBrokenLinks: "throw",
@@ -60,6 +59,11 @@ const config = {
             position: "left",
             label: "Docs",
           },
+          {
+            to: "blog",
+            label: "Blog",
+            position: "left"
+          }
         ],
       },
       footer: {
@@ -68,9 +72,12 @@ const config = {
       },
       prism: {
         additionalLanguages: ['php', 'bash'],
-        theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+      }
     }),
 };
 

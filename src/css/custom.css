@@ -4,6 +4,7 @@
  * work well for content-centric websites.
  */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
@@ -14,22 +15,78 @@
   --ifm-color-primary-light: #45454d;
   --ifm-color-primary-lighter: #484851;
   --ifm-color-primary-lightest: #52525b;
-  --ifm-link-color: #16a34a;
-  --ifm-code-font-size: 80%;
-  --ifm-font-family-base: 'Inter';
+  --ifm-code-font-size: 85%;
+  --ifm-font-family-base: 'Open Sans';
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #d1d5db;
-  --ifm-color-primary-dark: #b9bfc8;
-  --ifm-color-primary-darker: #adb4bf;
-  --ifm-color-primary-darkest: #8993a3;
-  --ifm-color-primary-light: #e9ebee;
-  --ifm-color-primary-lighter: #f5f6f7;
-  --ifm-color-primary-lightest: #ffffff;
-  --ifm-link-color: #4ade80;
-  --ifm-font-family-base: 'Inter';
+  --ifm-color-primary: #aefd36;
+  --ifm-color-primary-dark: #a2fd18;
+  --ifm-color-primary-darker: #9cfd08;
+  --ifm-color-primary-darkest: #81d502;
+  --ifm-color-primary-light: #bafd54;
+  --ifm-color-primary-lighter: #c0fd64;
+  --ifm-color-primary-lightest: #d3fe91;
+  --ifm-navbar-background-color: #131313;
+  --ifm-footer-background-color: #000000 !important;
+  --ifm-background-color: #000000 !important;
+  --ifm-background-color: #000000 !important;
+  --ifm-font-family-base: 'Open Sans';
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --larastats-color-primary-contrast-background: #335500 ;
+  --larastats-color-secondary-contrast-background: #000000 ;
+  --larastats-color-success-contrast-background: #375904 ;
+  --larastats-color-info-contrast-background: #000000 ;
+  --larastats-color-warning-contrast-background: #000000 ;
+  --larastats-color-danger-contrast-background: #6d0808 ;
+
+}
+
+.footer {
+  background-color: #000000;
+}
+
+.alert--primary {
+  --ifm-alert-background-color: var(--larastats-color-primary-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(53, 120, 229, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-primary-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-primary-dark);
+}
+
+.alert--secondary {
+  --ifm-alert-background-color: var(--ifm-color-secondary-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(235, 237, 240, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-secondary-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-secondary-dark);
+}
+
+.alert--success {
+  --ifm-alert-background-color: var(--larastats-color-success-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(0, 164, 0, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-success-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-success-dark);
+}
+
+.alert--info {
+  --ifm-alert-background-color: var(--ifm-color-info-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(84, 199, 236, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-info-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-info-dark);
+}
+
+.alert--warning {
+  --ifm-alert-background-color: var(--ifm-color-warning-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(255, 186, 0, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-warning-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-warning-dark);
+}
+
+.alert--danger {
+  --ifm-alert-background-color: var(--larastats-color-danger-contrast-background);
+  --ifm-alert-background-color-highlight: rgba(250, 56, 62, 0.15);
+  --ifm-alert-foreground-color: var(--ifm-color-danger-contrast-foreground);
+  --ifm-alert-border-color: var(--ifm-color-danger-dark);
 }
