@@ -6,28 +6,28 @@ sidebar_position: 3
 
 # Configuration
 
-This file is available in `config/larastats.php`, we prepared a default configuration, however, most of the configuration can be customized to your own needs (models, middleware, listeners, notifications...).
+This file is available in `config/moonguard.php`, we prepared a default configuration, however, most of the configuration can be customized to your own needs (models, middleware, listeners, notifications...).
 
 ```php
 <?php
 
 return [
     'user' => [
-        'model' => \Taecontrol\Larastats\Models\User::class,
+        'model' => \Taecontrol\Moonguard\Models\User::class,
     ],
     'site' => [
-        'model' => \Taecontrol\Larastats\Models\Site::class,
+        'model' => \Taecontrol\Moonguard\Models\Site::class,
     ],
     'uptime_check' => [
         'enabled' => true,
-        'model' => \Taecontrol\Larastats\Models\UptimeCheck::class,
+        'model' => \Taecontrol\Moonguard\Models\UptimeCheck::class,
 
         'notify_failed_check_after_consecutive_failures' => 1,
         'resend_uptime_check_failed_notification_every_minutes' => 5,
     ],
     'ssl_certificate_check' => [
         'enabled' => true,
-        'model' => \Taecontrol\Larastats\Models\SslCertificateCheck::class,
+        'model' => \Taecontrol\Moonguard\Models\SslCertificateCheck::class,
 
         'notify_expiring_soon_if_certificate_expires_within_days' => 7,
         'cron_schedule' => '* * * * *',
@@ -36,10 +36,10 @@ return [
         'enabled' => true,
         'notify_time_between_group_updates_in_minutes' => 15,
         'exception_log' => [
-            'model' => \Taecontrol\Larastats\Models\ExceptionLog::class,
+            'model' => \Taecontrol\Moonguard\Models\ExceptionLog::class,
         ],
         'exception_log_group' => [
-            'model' => \Taecontrol\Larastats\Models\ExceptionLogGroup::class,
+            'model' => \Taecontrol\Moonguard\Models\ExceptionLogGroup::class,
         ],
     ],
     'routes' => [
@@ -48,26 +48,26 @@ return [
     ],
     'events' => [
         'listen' => [
-            \Taecontrol\Larastats\Events\UptimeCheckRecoveredEvent::class => [
-                \Taecontrol\Larastats\Listeners\UptimeCheckRecoveredListener::class,
+            \Taecontrol\Moonguard\Events\UptimeCheckRecoveredEvent::class => [
+                \Taecontrol\Moonguard\Listeners\UptimeCheckRecoveredListener::class,
             ],
-            \Taecontrol\Larastats\Events\UptimeCheckFailedEvent::class => [
-                \Taecontrol\Larastats\Listeners\UptimeCheckFailedListener::class,
+            \Taecontrol\Moonguard\Events\UptimeCheckFailedEvent::class => [
+                \Taecontrol\Moonguard\Listeners\UptimeCheckFailedListener::class,
             ],
-            \Taecontrol\Larastats\Events\RequestTookLongerThanMaxDurationEvent::class => [
-                \Taecontrol\Larastats\Events\RequestTookLongerThanMaxDurationEvent::class,
+            \Taecontrol\Moonguard\Events\RequestTookLongerThanMaxDurationEvent::class => [
+                \Taecontrol\Moonguard\Events\RequestTookLongerThanMaxDurationEvent::class,
             ],
-            \Taecontrol\Larastats\Events\SslCertificateExpiresSoonEvent::class => [
-                \Taecontrol\Larastats\Listeners\SslCertificateExpiresSoonListener::class,
+            \Taecontrol\Moonguard\Events\SslCertificateExpiresSoonEvent::class => [
+                \Taecontrol\Moonguard\Listeners\SslCertificateExpiresSoonListener::class,
             ],
-            \Taecontrol\Larastats\Events\SslCertificateCheckFailedEvent::class => [
-                \Taecontrol\Larastats\Listeners\SslCertificateCheckFailedListener::class,
+            \Taecontrol\Moonguard\Events\SslCertificateCheckFailedEvent::class => [
+                \Taecontrol\Moonguard\Listeners\SslCertificateCheckFailedListener::class,
             ],
-            \Taecontrol\Larastats\Events\ExceptionLogGroupCreatedEvent::class => [
-                \Taecontrol\Larastats\Listeners\ExceptionLogGroupCreatedListener::class,
+            \Taecontrol\Moonguard\Events\ExceptionLogGroupCreatedEvent::class => [
+                \Taecontrol\Moonguard\Listeners\ExceptionLogGroupCreatedListener::class,
             ],
-            \Taecontrol\Larastats\Events\ExceptionLogGroupUpdatedEvent::class => [
-                \Taecontrol\Larastats\Listeners\ExceptionLogGroupUpdatedListener::class,
+            \Taecontrol\Moonguard\Events\ExceptionLogGroupUpdatedEvent::class => [
+                \Taecontrol\Moonguard\Listeners\ExceptionLogGroupUpdatedListener::class,
             ],
         ],
     ],

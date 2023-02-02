@@ -42,14 +42,14 @@ $exceptionLogs = $exceptionLogGroup->exceptionLogs;
 
 The following steps must be completed to create a custom site model:
 
-1. Create a new **ExceptionLog** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Larastats\Contracts\LarastatsExceptionLog` interface.
-2. Implement all the properties and methods required, you can guide yourself with the original `ExceptionLog.php` model from Larastats.
+1. Create a new **ExceptionLog** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Moonguard\Contracts\MoonguardExceptionLog` interface.
+2. Implement all the properties and methods required, you can guide yourself with the original `ExceptionLog.php` model from Moonguard.
 3. Replace the new ExceptionLog model class in the configuration file.
 
 ## Custom Exception Log Group Model
 
 The following steps must be completed to create a custom site model:
 
-1. Create a new **ExceptionLogGroup** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Larastats\Contracts\LarastatsExceptionLogGroup` interface.
-2. Implement all the properties and methods required, you can guide yourself with the original `ExceptionLogGroup.php` model from Larastats.
+1. Create a new **ExceptionLogGroup** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Moonguard\Contracts\MoonguardExceptionLogGroup` interface.
+2. Implement all the properties and methods required, you can guide yourself with the original `ExceptionLogGroup.php` model from Moonguard.
 3. Replace the new ExceptionLogGroup model class in the configuration file.

@@ -6,7 +6,7 @@ sidebar_position: 6
 
 # Notifications
 
-Larastats ships with some notifications for different use cases and scenarios, we've added the following notifications:
+Moonguard ships with some notifications for different use cases and scenarios, we've added the following notifications:
 
 - New Exception Log Group.
 - Request Took Longer Than Maximum Duration.
@@ -21,9 +21,9 @@ All the notifications are using the `Illuminate\Contracts\Queue\ShouldQueue` int
 
 ## Notifications via mail
 
-Notifications via mail are active by default, you can find this in the `larastats.php` config file:
+Notifications via mail are active by default, you can find this in the `moonguard.php` config file:
 
-```php title="./config/larastats.php"
+```php title="./config/moonguard.php"
 [
   //...
   'notifications' => [
@@ -43,9 +43,9 @@ In order to send notifications via Slack, you must install the Slack notificatio
 composer require laravel/slack-notification-channel
 ```
 
-Then we add `slack` on channels in `larastats.php` configuration file:
+Then we add `slack` on channels in `moonguard.php` configuration file:
 
-```php  title="./config/larastats.php"
+```php  title="./config/moonguard.php"
 [
   //...
   'notifications' => [

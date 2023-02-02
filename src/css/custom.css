@@ -36,12 +36,12 @@
   --ifm-font-family-base: 'Open Sans';
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-  --larastats-color-primary-contrast-background: #335500 ;
-  --larastats-color-secondary-contrast-background: #000000 ;
-  --larastats-color-success-contrast-background: #375904 ;
-  --larastats-color-info-contrast-background: #000000 ;
-  --larastats-color-warning-contrast-background: #000000 ;
-  --larastats-color-danger-contrast-background: #6d0808 ;
+  --moonguard-color-primary-contrast-background: #335500 ;
+  --moonguard-color-secondary-contrast-background: #000000 ;
+  --moonguard-color-success-contrast-background: #375904 ;
+  --moonguard-color-info-contrast-background: #000000 ;
+  --moonguard-color-warning-contrast-background: #000000 ;
+  --moonguard-color-danger-contrast-background: #6d0808 ;
 
 }
 
@@ -50,7 +50,7 @@
 }
 
 .alert--primary {
-  --ifm-alert-background-color: var(--larastats-color-primary-contrast-background);
+  --ifm-alert-background-color: var(--moonguard-color-primary-contrast-background);
   --ifm-alert-background-color-highlight: rgba(53, 120, 229, 0.15);
   --ifm-alert-foreground-color: var(--ifm-color-primary-contrast-foreground);
   --ifm-alert-border-color: var(--ifm-color-primary-dark);
@@ -64,7 +64,7 @@
 }
 
 .alert--success {
-  --ifm-alert-background-color: var(--larastats-color-success-contrast-background);
+  --ifm-alert-background-color: var(--moonguard-color-success-contrast-background);
   --ifm-alert-background-color-highlight: rgba(0, 164, 0, 0.15);
   --ifm-alert-foreground-color: var(--ifm-color-success-contrast-foreground);
   --ifm-alert-border-color: var(--ifm-color-success-dark);
@@ -85,7 +85,7 @@
 }
 
 .alert--danger {
-  --ifm-alert-background-color: var(--larastats-color-danger-contrast-background);
+  --ifm-alert-background-color: var(--moonguard-color-danger-contrast-background);
   --ifm-alert-background-color-highlight: rgba(250, 56, 62, 0.15);
   --ifm-alert-foreground-color: var(--ifm-color-danger-contrast-foreground);
   --ifm-alert-border-color: var(--ifm-color-danger-dark);

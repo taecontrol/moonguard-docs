@@ -6,7 +6,7 @@ sidebar_position: 5
 
 # Events
 
-Larastats has a set of events that are dispatched according to the service or functionality being executed:
+Moonguard has a set of events that are dispatched according to the service or functionality being executed:
 
 ### UptimeCheckFailedEvent
 
@@ -37,19 +37,19 @@ This event is fired when a new Exception log group is created.
 This event is fired when an existing Exception Log Group is updated. Useful when we receive a batch of exceptions that are repeated
 
 :::tip Namespace
-All the mentioned events use the namespace: `Taecontrol\Larastats\Events\<Event::class>`
+All the mentioned events use the namespace: `Taecontrol\Moonguard\Events\<Event::class>`
 :::
 
 ## Extending Listeners
 
-Listeners may be added or replaced in Larastats configuration: `config/larastats.php`, this way you can add the behavior you need for these events.
+Listeners may be added or replaced in Moonguard configuration: `config/moonguard.php`, this way you can add the behavior you need for these events.
 
 ```php
 [
 //...
 'events' =>
   	'listen' => [
-      \Taecontrol\Larastats\Events\SslCertificateExpiresSoonEvent::class => [
+      \Taecontrol\Moonguard\Events\SslCertificateExpiresSoonEvent::class => [
           \App\Listeners\MySslCertificateListener::class,
       ],
     ]

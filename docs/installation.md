@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Installation via Composer
 
-In order to install Larastats you must have Composer in your system.
+In order to install Moonguard you must have Composer in your system.
 
 In your application you need to add our repository in your `composer.json` file:
 
@@ -21,23 +21,23 @@ In your application you need to add our repository in your `composer.json` file:
 ],
 ```
 
-Next, you must add `taecontrol/larastats` package to the list of required packages:
+Next, you must add `taecontrol/moonguard` package to the list of required packages:
 
 ```json
 "require": {
     "php": "^8.0",
     "laravel/framework": "^9.0",
-    "taecontrol/larastats": "*"
+    "taecontrol/moonguard": "*"
 },
 ```
 
-Your `composer.json` is ready to install Larastats, run `composer update` command in your console terminal:
+Your `composer.json` is ready to install Moonguard, run `composer update` command in your console terminal:
 
 ```bash
 composer update
 ```
 
-It will prompt to provide your login credentials to Larastats site. We need this to authenticate your Composer session and permissions to download Larastats package source code. You can also create a Composer auth.json file (this will prevent you to type your credentials manually):
+It will prompt to provide your login credentials to Moonguard site. We need this to authenticate your Composer session and permissions to download Moonguard package source code. You can also create a Composer auth.json file (this will prevent you to type your credentials manually):
 
 ```json
 {
@@ -68,13 +68,13 @@ At this point you should have two service providers registered in `config/app.ph
 ```php
   'providers' => [
     // ...
-    Taecontrol\Larastats\Providers\LarastatsServiceProvider::class,
-    Taecontrol\Larastats\Providers\LarastatsFilamentServiceProvider::class,
+    Taecontrol\Moonguard\Providers\MoonguardServiceProvider::class,
+    Taecontrol\Moonguard\Providers\MoonguardFilamentServiceProvider::class,
   ]
 ```
 
 :::tip Composer tip
-If you don't intend to use Filament, you should remove **_LarastatsFilamentServiceProvider::class_** from your app providers array.
+If you don't intend to use Filament, you should remove **_MoonguardFilamentServiceProvider::class_** from your app providers array.
 :::
 
 ## Migrations and Configuration file
@@ -82,11 +82,11 @@ If you don't intend to use Filament, you should remove **_LarastatsFilamentServi
 To publish the migrations and the configuration file use:
 
 ```bash
-php artisan vendor:publish --tag="larastats-migrations"
-php artisan vendor:publish --tag="larastats-config"
+php artisan vendor:publish --tag="moonguard-migrations"
+php artisan vendor:publish --tag="moonguard-config"
 ```
 
-You will be able to find a migration file `create_larastats_table.php` in your `database/migration` directory and a config file `config/larastats.php`. Run the following command to migrate larastats table:
+You will be able to find a migration file `create_moonguard_table.php` in your `database/migration` directory and a config file `config/moonguard.php`. Run the following command to migrate moonguard table:
 
 ```bash
 php artisan migrate

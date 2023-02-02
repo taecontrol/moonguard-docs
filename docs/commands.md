@@ -13,7 +13,7 @@ We prepared several commands to be scheduled in you app kernel.
 This command checks the uptime for all your registered sites, only for those sites with Uptime Check enabled and that are not in maintenance mode:
 
 ```php title="app/Console/Kernel.php"
-use Taecontrol\Larastats\Console\Commands\CheckUptimeCommand;
+use Taecontrol\Moonguard\Console\Commands\CheckUptimeCommand;
 //...
 
 protected function schedule(Schedule $schedule)
@@ -27,7 +27,7 @@ protected function schedule(Schedule $schedule)
 This command checks all your registered sites SSL certificates, only sites with SSL Certificate Check enabled and that are not in maintenance mode:
 
 ```php title="app/Console/Kernel.php"
-use Taecontrol\Larastats\Console\Commands\CheckSslCertificateCommand;
+use Taecontrol\Moonguard\Console\Commands\CheckSslCertificateCommand;
 //...
 
 protected function schedule(Schedule $schedule)
@@ -38,17 +38,17 @@ protected function schedule(Schedule $schedule)
 
 ## Utils
 
-### LarastatsCommandScheduler
+### MoonguardCommandScheduler
 
 We made a helper class with a static function that runs the mentioned commands, you must pass the Schedule `$schedule` and two cron strings (Uptime Check cron time and SSL Certificate Check cron time):
 
 ```php title="app/Console/Kernel.php"
-use Taecontrol\Larastats\Console\LarastatsCommandScheduler;
+use Taecontrol\Moonguard\Console\MoonguardCommandScheduler;
 //...
 
 protected function schedule(Schedule $schedule)
 {
-  LarastatsCommandScheduler::scheduleLarastatsCommands(
+  MoonguardCommandScheduler::scheduleMoonguardCommands(
     $schedule, 
     '* * * * *', 
     '* * * * *'
