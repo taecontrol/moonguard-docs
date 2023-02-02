@@ -4,7 +4,7 @@ slug: /commands
 sidebar_position: 4
 ---
 
-# Commands
+# Commands 
 
 We prepared several commands to be scheduled in you app kernel.
 
