@@ -33,7 +33,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: '/'
+          routeBasePath: "/",
         },
         blog: false,
         theme: {
@@ -46,12 +46,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: "/img/preview.jpg",
+      metadata: [
+        {
+          name: "keyboards",
+          content: "MoonGuard, docs, laravel, php, package, composer, artisan",
+        },
+      ],
       navbar: {
         title: "",
         logo: {
-          alt: "Moonguard Logo",
-          src: "img/logo.svg",
-          srcDark: "img/logoDark.svg",
+          alt: "Moonguard Imagotype",
+          src: "img/imagotype.png",
+          srcDark: "img/imagotype.png",
         },
         items: [
           {
@@ -67,13 +74,13 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Moonguard.`,
       },
       prism: {
-        additionalLanguages: ['php', 'bash'],
+        additionalLanguages: ["php", "bash"],
         darkTheme: darkCodeTheme,
       },
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
         disableSwitch: true,
-      }
+      },
     }),
 };
 
