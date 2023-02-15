@@ -4,7 +4,7 @@ slug: /site-model
 sidebar_position: 1
 ---
 
-# Model
+# Site Model
 
 Site is the representation of your production apps, webs, platforms and they are the main entity of Moonguard, everything is related to a site.
 
@@ -62,6 +62,6 @@ You may use some of the following scopes:
 
 The following steps must be completed to create a custom site model:
 
-1. Create a new **Site** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Moonguard\Contracts\MoonguardSite` interface.
+1. Create a new **Site** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\MoonGuard\Contracts\MoonGuardSite` interface.
 2. Implement all the properties and methods required, you can guide yourself with the original `Site.php` model from Moonguard.
 3. Replace the new Site model class in the configuration file.

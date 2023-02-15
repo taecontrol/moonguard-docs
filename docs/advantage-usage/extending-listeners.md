@@ -13,7 +13,7 @@ Listeners may be added or replaced in Moonguard configuration: `config/moonguard
 //...
 'events' =>
   	'listen' => [
-      \Taecontrol\Moonguard\Events\SslCertificateExpiresSoonEvent::class => [
+      \Taecontrol\MoonGuard\Events\SslCertificateExpiresSoonEvent::class => [
           \App\Listeners\MySslCertificateListener::class,
       ],
     ]
