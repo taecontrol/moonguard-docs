@@ -4,7 +4,7 @@ slug: /moonguard-command-scheduler
 sidebar_position: 1
 ---
 
-# MoonguardCommandScheduler
+# Moonguard Command Scheduler
 
 We made a helper class with a static function that runs the mentioned commands, you must pass the Schedule `$schedule` and two cron strings (Uptime Check cron time and SSL Certificate Check cron time):
 

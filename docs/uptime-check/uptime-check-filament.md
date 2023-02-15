@@ -4,7 +4,7 @@ slug: /uptime-check-filament
 sidebar_position: 2
 ---
 
-# Uptime Check with Filament
+# Working with Filament
 
 You'll be able to see your sites status in the main dashboard.
 ![Dashboard](./img/dashboard.png)

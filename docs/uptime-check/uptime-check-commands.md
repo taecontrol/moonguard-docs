@@ -4,7 +4,7 @@ slug: /uptime-check-commands
 sidebar_position: 3
 ---
 
-# Uptime Check Commands 
+# Commands 
 
 
 ## CheckUptimeCommand

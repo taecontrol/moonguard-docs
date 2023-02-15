@@ -4,7 +4,7 @@ slug: /ssl-certificate-check-events
 sidebar_position: 4
 ---
 
-# SSL Certificate Check Events
+# Events
 
 ## SslCertificateExpiresSoonEvent
 

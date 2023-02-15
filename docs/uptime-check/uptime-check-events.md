@@ -4,7 +4,7 @@ slug: /uptime-check-events
 sidebar_position: 4
 ---
 
-# Uptime Check Events
+# Events
 
 ## UptimeCheckFailedEvent
 

@@ -4,7 +4,7 @@ slug: /exceptions-events
 sidebar_position: 4
 ---
 
-# Exceptions Events
+# Events
 
 ## ExceptionLogGroupCreatedEvent
 

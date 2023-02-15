@@ -4,7 +4,7 @@ slug: /uptime-check-model
 sidebar_position: 1
 ---
 
-# Uptime Check Model
+# Model
 
 It represents the result of the last uptime check of a site.
 

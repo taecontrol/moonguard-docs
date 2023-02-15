@@ -4,7 +4,7 @@ slug: /site-model
 sidebar_position: 1
 ---
 
-# Site Model
+# Model
 
 Site is the representation of your production apps, webs, platforms and they are the main entity of Moonguard, everything is related to a site.
 

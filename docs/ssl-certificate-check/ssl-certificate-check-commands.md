@@ -4,7 +4,7 @@ slug: /ssl-certificate-check-commands
 sidebar_position: 3
 ---
 
-# SSL Certificate Check Commands
+# Commands
 
 ## CheckSslCertificateCommand
 

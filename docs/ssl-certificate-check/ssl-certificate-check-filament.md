@@ -4,7 +4,7 @@ slug: /ssl-certificate-check-filament
 sidebar_position: 2
 ---
 
-# SSL Certificate Check with Filament
+# Working with Filament
 
 You'll be able to see your sites SSL certificate status in the main dashboard.
 ![Dashboard](./img/dashboard.png)

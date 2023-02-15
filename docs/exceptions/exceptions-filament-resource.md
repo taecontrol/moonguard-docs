@@ -4,7 +4,7 @@ slug: /exceptions-filament-resource
 sidebar_position: 2
 ---
 
-# Exceptions Filament Resource
+# Filament Resource
 
 You'll find all your sites exceptions on **exceptions view**:
 
