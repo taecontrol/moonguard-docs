@@ -79,7 +79,8 @@ return [
     ],
 ];
 ```
-<br />
+<br/>
+
 If you made changes to this file remember to delete current config cache from your Laravel app:
 
 ```bash
