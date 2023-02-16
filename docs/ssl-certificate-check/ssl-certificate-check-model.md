@@ -4,7 +4,7 @@ slug: /ssl-certificate-check-model
 sidebar_position: 1
 ---
 
-# SSL Certificate Check Model
+# Model
 
 It represents the result of the last ssl certificate check of a site.
 
@@ -51,6 +51,6 @@ $sslCheck->certificateIsAboutToExpire(4);
 
 The following steps must be completed to create a custom SSL Certificate Check model:
 
-1. Create a new **SslCertificateCheck** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Moonguard\Contracts\MoonguardSslCertificateCheck` interface.
+1. Create a new **SslCertificateCheck** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck` interface.
 2. Implement all the properties and methods required, you can guide yourself with the original `SslCertificateCheck.php` model from Moonguard.
 3. Replace the new Site model class in the configuration file.

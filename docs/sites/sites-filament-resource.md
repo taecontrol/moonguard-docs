@@ -4,9 +4,9 @@ slug: /sites-filament-resource
 sidebar_position: 2
 ---
 
-# Sites Filament Resource
+# Filament Resource
 
-If you are setting up moonguard for the first time, there are probably no records in the sites table, in order to create new sites you may press **Create a Site** on home dashboard or you may go to Site (sidebar), and press **New Site** button.
+If you are setting up Moonguard for the first time, there are probably no records in the sites table, in order to create new sites you may press **Create a Site** on home dashboard or you may go to Site (sidebar), and press **New Site** button.
 
 ## List sites
 

@@ -68,8 +68,8 @@ At this point you should have two service providers registered in `config/app.ph
 ```php
   'providers' => [
     // ...
-    Taecontrol\Moonguard\Providers\MoonguardServiceProvider::class,
-    Taecontrol\Moonguard\Providers\MoonguardFilamentServiceProvider::class,
+    Taecontrol\MoonGuard\Providers\MoonGuardServiceProvider::class,
+    Taecontrol\MoonGuard\Providers\MoonGuardFilamentServiceProvider::class,
   ]
 ```
 
