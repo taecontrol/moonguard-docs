@@ -54,11 +54,6 @@ You can generate api tokens when you create or edit a site:
 check more about larvis on [Github](https://github.com/taecontrol/larvis).
 
 
-<!-- 
--agregar servicios en uptime y ssl certificate
-
--correguir textos.
--->
 
 
 
