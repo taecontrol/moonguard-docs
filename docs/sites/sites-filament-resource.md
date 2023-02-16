@@ -44,6 +44,6 @@ Here you can **list**, **create**, **edit** or **delete** sites.
 In site main view, you've to select (checkbox) the site you intend to delete, a popover menu will be available with the option to delete selected sites:
 
 ![Delete a site](./img/delete-sites.png)
-:::danger Take care
+:::caution Heads Up
 If you delete a site any data related to the site will be deleted aswell.
 :::

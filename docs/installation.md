@@ -58,7 +58,7 @@ composer config http-basic.satis.taecontrol.com johndoe@example.com your-api-tok
 ```
 :::
 
-:::danger Take care
+:::caution Heads up
 We don't advise to add this file to your project version control system.
 :::
 

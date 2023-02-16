@@ -15,6 +15,6 @@ Moonguard ships with some notifications for different use cases and scenarios, w
 - Uptime Check Failed.
 - Uptime Check Recovered.
 
-:::tip Take care
-All the notifications are using the `Illuminate\Contracts\Queue\ShouldQueue` interface and `Illuminate\Bus\Queueable` trait, you must setup a queue driver to send notifications (we recommend redis).
+:::caution Heads Up
+All the notifications are using the `Illuminate\Contracts\Queue\ShouldQueue` interface and `Illuminate\Bus\Queueable` trait, you must setup a queue driver to send notifications (we recommend Redis).
 :::
