@@ -37,7 +37,8 @@ Your `composer.json` is ready to install Moonguard, run `composer update` comman
 composer update
 ```
 
-It will prompt to provide your login credentials to Moonguard site. We need this to authenticate your Composer session and permissions to download Moonguard package source code. You can also create a Composer auth.json file (this will prevent you to type your credentials manually):
+<!-- It will prompt to provide your login credentials to Moonguard site. We need this to authenticate your Composer session and permissions to download Moonguard package source code. You can also create a Composer auth.json file (this will prevent you to type your credentials manually): -->
+It will prompt you to provide your login credentials to the Moonguard site. This is necessary to authenticate your Composer session and give you the necessary permissions to download the Moonguard package source code. You can also create a Composer auth.json file, which will prevent you from having to type your credentials manually.
 
 ```json
 {
@@ -86,7 +87,8 @@ php artisan vendor:publish --tag="moonguard-migrations"
 php artisan vendor:publish --tag="moonguard-config"
 ```
 
-You will be able to find a migration file `create_moonguard_table.php` in your `database/migration` directory and a config file `config/moonguard.php`. Run the following command to migrate moonguard table:
+<!-- You will be able to find a migration file `create_moonguard_table.php` in your `database/migration` directory and a config file `config/moonguard.php`. Run the following command to migrate moonguard table: -->
+You will be able to find a migration file called `create_moonguard_table.php` in your `database/migration` directory, and a configuration file called `config/moonguard.php`. To migrate the Moonguard table, run the following command:
 
 ```bash
 php artisan migrate
@@ -94,7 +96,8 @@ php artisan migrate
 
 ## Queues and Workers
 
-We use queues on notifications so we recommend you to configure redis in your project. Then run a worker:
+<!-- We use queues on notifications so we recommend you to configure redis in your project. Then run a worker: -->
+We use queues for notifications, so we recommend that you configure Redis in your project and then run a worker:
 
 ```bash
 php artisan queue:work

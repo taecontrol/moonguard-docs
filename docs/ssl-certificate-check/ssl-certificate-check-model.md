@@ -4,7 +4,7 @@ slug: /ssl-certificate-check-model
 sidebar_position: 1
 ---
 
-# Model
+# SslCertificateCheck Model
 
 It represents the result of the last ssl certificate check of a site.
 
