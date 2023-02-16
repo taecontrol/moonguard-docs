@@ -44,6 +44,6 @@ $tookTooLong = $uptimeCheck()->requestTookTooLong();
 
 The following steps must be completed to create a custom uptime check model:
 
-1. Create a new **UptimeCheck** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\MoonGuard\Contracts\MoonguardUptimeCheck` interface.
+1. Create a new **UptimeCheck** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck` interface.
 2. Implement all the properties and methods required, you can guide yourself with the original `UptimeCheck.php` model from Moonguard.
 3. Replace the new Uptime Check model class in the configuration file.

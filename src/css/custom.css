@@ -37,7 +37,8 @@
 
   --moonguard-color-primary-contrast-background: #335500 ;
   --moonguard-color-secondary-contrast-background: #000000 ;
-  --moonguard-color-success-contrast-background: #375904 ;
+  /* --moonguard-color-success-contrast-background: #375904 ; */
+  --moonguard-color-success-contrast-background: #192902 ;
   --moonguard-color-info-contrast-background: #000000 ;
   --moonguard-color-warning-contrast-background: #000000 ;
   --moonguard-color-danger-contrast-background: #6d0808 ;
@@ -84,7 +85,7 @@
 }
 
 .alert--danger {
-  --ifm-alert-background-color: var(--moonguard-color-danger-contrast-background);
+  /* --ifm-alert-background-color: var(--moonguard-color-danger-contrast-background); */
   --ifm-alert-background-color-highlight: rgba(250, 56, 62, 0.15);
   --ifm-alert-foreground-color: var(--ifm-color-danger-contrast-foreground);
   --ifm-alert-border-color: var(--ifm-color-danger-dark);

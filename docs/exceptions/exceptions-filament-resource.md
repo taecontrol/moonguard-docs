@@ -9,7 +9,8 @@ sidebar_position: 2
 You'll find all your sites exceptions on **exceptions view**:
 ![Exceptions view](./img/exceptions-by-group.png)
 
-Here you will see all the exceptions in group, you can see the number of times it has been received as the first occurrence and the last occurrence. To see the individual detail of each exception, you must click on the row of the desired exception:
+<!-- Here you will see all the exceptions in group, you can see the number of times it has been received as the first occurrence and the last occurrence. To see the individual detail of each exception, you must click on the row of the desired exception: -->
+Here you can view all the exceptions in a group, along with the first and last times they were reported. To view the details of each exception, simply click on the row for the desired exception.
 
 ![Exception detail](./img/exception-detail.png)
 Here you will be able to resolve, ignore, review or unresolved exceptions.
