@@ -45,15 +45,6 @@ Or by exception groups:
 ```php
 $exceptionGroups = $site->exceptionLogGroups;
 ```
-
-## Scopes
-
-You may use some of the following scopes:
-
-- scopeWhereUptimeCheckEnabled(Bulder $query): Builder
-- scopeWhereSslCertificateCheckEnabled(Bulder $query): Builder
-- scopeWhereIsNotOnMaintenance(Bulder $query): Builder
-
 ## Atributes
 
 - url: _string_

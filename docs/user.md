@@ -5,7 +5,7 @@ sidebar_position: 4
 ---
 
 # Users
-<!-- Moonguard comes with its own user model (it have a default structure with some modifications) however, you will most likely want to use your project's user model. If that's the case, the next section will help you make the change on Moonguard. -->
+
 Moonguard comes with its own user model (it has a default structure with some modifications), but you will most likely want to use your project's user model. If that's the case, the next section will help you make the necessary changes to the Moonguard configuration.
 
 ## Custom User Model

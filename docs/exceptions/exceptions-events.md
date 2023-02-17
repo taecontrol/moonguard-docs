@@ -8,12 +8,10 @@ sidebar_position: 4
 
 ## ExceptionLogGroupCreatedEvent
 
-<!-- This event is fired when a new Exception log group is created. -->
 This event is triggered when a new Exception log group is created.
 
 ## ExceptionLogGroupUpdatedEvent
 
-<!-- This event is fired when an existing Exception Log Group is updated. Useful when we receive a batch of exceptions that are repeated -->
 This event is triggered when an existing Exception Log Group is modified. This is useful when multiple repeated exceptions are received in a single batch.
 
 :::tip Namespace

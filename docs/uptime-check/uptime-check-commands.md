@@ -1,7 +1,7 @@
 ---
 id: uptime-check-commands
 slug: /uptime-check-commands
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Commands 

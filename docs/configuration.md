@@ -6,7 +6,6 @@ sidebar_position: 3
 
 # Configuration
 
-<!-- This file is available in `config/moonguard.php`, we prepared a default configuration, however, most of the configuration can be customized to your own needs (models, middleware, listeners, notifications...). -->
 This file is available in config/moonguard.php, and we have prepared a default configuration. However, most of the configuration can be customized to suit your own needs, such as **models**, **middleware**, **listeners**, **notifications**, etc.
 
 ```php

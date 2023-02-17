@@ -6,7 +6,6 @@ sidebar_position: 13
 
 # Larvis Package
 
-<!-- Larvis is a laravel package to push site monitoring data to Moonguard. If you want to send exception data to Moonguard you must install Larvis in your application and share an api token from Moonguard. -->
 To send exception data to Moonguard, you must install the Larvis package in your Laravel application and provide an API token from Moonguard. Larvis is a Laravel package that allows you to push site monitoring data to Moonguard.
 
 ## Installation
