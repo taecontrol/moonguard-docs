@@ -1,0 +1,78 @@
+.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module{
+  background: #000000;
+  
+}
+
+.prism-code {
+  font-family:'JetBrains Mono';
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #000000;
+}
+  
+pre {
+  line-height: 20px;
+  border-left: solid 5px #a3e635; /* lime-400 */
+}
+
+.token.property,
+.token.tag,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: rgb(230, 112, 112) !important;
+}
+
+.token.string {
+  color: rgb(195, 232, 141) !important;
+}
+
+.token.keyword,
+.token.selector,
+.token.attr-name,
+.token.char,
+.token.boolean,
+.token.builtin,
+.token.inserted {
+  color: #b379ca !important;
+}
+  
+.token.atrule,
+.token.attr-value,
+.token.function {
+  color: #ffffffc9 !important;
+}
+
+.token.package {
+  color:rgb(255, 203, 107);
+}
+
+.token.variable {
+  color:#b379ca !important;
+}
+.token.regex,
+.token.important {
+  color: #e93434;
+}
+  
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.keyword{
+  font-style: normal !important;
+}
+
+.token.operator{
+  color: rgba(245, 229, 229, 0.795) !important;
+}
+
+.token.punctuation{
+  color: #ece3e3ec !important;
+}
+
+.token.comment {
+  color: rgb(105, 112, 152) !important;
+}
