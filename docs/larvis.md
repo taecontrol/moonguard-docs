@@ -21,7 +21,6 @@ composer require taecontrol/larvis
 On the `Handler.php` class of your Laravel project, add the next code to capture all exceptions:
 
 ```php
-...
 /**
  * Register the exception handling callbacks for the application.
  *
@@ -38,7 +37,6 @@ public function register()
         });
     }
 }
-...
 ```
 Then, define the next `.env` vars:
 
