@@ -9,6 +9,11 @@
   line-height: 1.5;
   background-color: #000000;
 }
+
+code {
+  background: #27272a;
+  color: #a3e635;
+}
   
 pre {
   line-height: 20px;
