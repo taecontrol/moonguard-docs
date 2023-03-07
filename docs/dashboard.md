@@ -1,7 +1,7 @@
 ---
 id: dashboard
 slug: /dashboard
-sidebar_position: 12
+sidebar_position: 10
 ---
 
 # Dashboard

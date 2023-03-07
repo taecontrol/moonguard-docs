@@ -1,7 +1,7 @@
 ---
 id: contributions
 slug: /contributions
-sidebar_position: 16
+sidebar_position: 13
 ---
 
 # Contributions Guide
@@ -41,11 +41,11 @@ It is also recommended to include the issue number in the description, like
 this: `Closes #<issue number>`. This way, contributors can quickly identify the issue.
 
 * It is important to run phpunit and php-cs-fixer before making any changes, in
-order to ensure that they do not break MoonGuard.
+order to ensure that they do not break the project.
 
 ## Support Questions
 
-MoonGuard's GitHub issue trackers are not intended to provide help or support for now.
+GitHub issue trackers are not intended to provide help or support for now.
 
 
 
