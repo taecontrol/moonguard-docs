@@ -40,12 +40,11 @@ bug fixes from the GitHub issue tracker, as well as the title of the issue.
 It is also recommended to include the issue number in the description, like
 this: `Closes #<issue number>`. This way, contributors can quickly identify the issue.
 
+* Be sure to include tests to verify that the issue has been resolved.
+
 * It is important to run phpunit and php-cs-fixer before making any changes, in
 order to ensure that they do not break the project.
 
 ## Support Questions
 
 GitHub issue trackers are not intended to provide help or support for now.
-
-
-
