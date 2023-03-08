@@ -12,7 +12,7 @@ sidebar_position: 2
 composer require taecontrol/moonguard
 ```
 
-## Manual Installation
+## Local Development
 
 Clone the [MoonGuard Repository](https://github.com/teacontrol/moonguard)
 
