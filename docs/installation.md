@@ -44,7 +44,7 @@ Finally you can run the `composer update` command to install MoonGuard to your p
 composer update
 ```
 
-At this point you should have to register two service providers in
+At this point you have to register two service providers in
 the `config/app.php`  :
 
 ```php
