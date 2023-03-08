@@ -17,9 +17,7 @@ We are not accepting these forms of contributions:
 
 ## Bug Reports
 
-In case you report a bug, your issue should contain a title and a clear description
-of the issue. You should also include revelant information and code samples to
-replicate the bug and develop a fix as easy as posible.
+If you encounter a bug, please make sure to include a descriptive title and a clear description of the issue in your report. It is also helpful to provide any relevant information and code samples that can help the maintainers replicate the bug and develop a fix as easily as possible.
 
 ## Development
 
