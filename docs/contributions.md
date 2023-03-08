@@ -23,8 +23,7 @@ If you encounter a bug, please make sure to include a descriptive title and a cl
 
 ### Installation
 
-For install a development environment you can check the manual installation
-[here](https://docs.moonguard.dev/installation#manual-installation).
+To install a development environment, you can refer to the manual installation guide found [here](https://docs.moonguard.dev/installation#manual-installation).
 
 ### Pull requests
 
