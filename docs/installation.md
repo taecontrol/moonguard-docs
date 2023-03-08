@@ -8,62 +8,11 @@ sidebar_position: 2
 
 ## Installation via Composer
 
-In order to install Moonguard you must have Composer in your system.
-
-In your application you need to add our repository in your `composer.json` file:
-
-```json
-"repositories": [
-  {
-    "type": "composer",
-    "url": "https://satis.taecontrol.com"
-  }
-],
-```
-
-Next, you must add `taecontrol/moonguard` package to the list of required packages:
-
-```json
-"require": {
-    "php": "^8.0",
-    "laravel/framework": "^9.0",
-    "taecontrol/moonguard": "*"
-},
-```
-
-Your `composer.json` is ready to install Moonguard, run `composer update` command in your console terminal:
-
 ```bash
-composer update
+composer require taecontrol/moonguard
 ```
 
-It will prompt you to provide your login credentials to the Moonguard site. This is necessary to authenticate your Composer session and give you the necessary permissions to download the Moonguard package source code. You can also create a Composer auth.json file, which will prevent you from having to type your credentials manually.
-
-```json
-{
-  "http-basic": {
-    "satis.taecontrol.com": {
-      "username": "johndoe@example.com",
-      "password": "your-api-token"
-    }
-  }
-}
-```
-
-:::tip Composer tip
-You can create your `auth.json` file with Composer:
-```bash
-composer config http-basic.satis.taecontrol.com johndoe@example.com your-api-token
-```
-:::
-
-:::caution Heads up
-We don't advise to add this file to your project version control system.
-:::
-
-<br />
-
-At this point you should have two service providers registered in `config/app.php`  :
+After installation you have to register two service providers in the `config/app.php`:
 
 ```php
   'providers' => [
@@ -76,6 +25,40 @@ At this point you should have two service providers registered in `config/app.ph
 :::tip Composer tip
 If you don't intend to use Filament, you should remove **_MoonguardFilamentServiceProvider::class_** from your app providers array.
 :::
+
+## Local Development
+
+Clone the [MoonGuard Repository](https://github.com/teacontrol/moonguard)
+
+Once you have clone it, update the `composer.json` of your project:
+**repository** key:
+
+```json
+{
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../<my-package-path>/moonguard"
+    }
+  ]
+}
+```
+
+Then add MoonGuard package in the `require` key:
+
+```json
+{
+  "require": {
+    "taecontrol/moonguard": "dev-main"
+  }
+}
+```
+
+Finally you can run the `composer update` command to install MoonGuard to your project.
+
+```bash
+composer update
+```
 
 ## Migrations and Configuration file
 
