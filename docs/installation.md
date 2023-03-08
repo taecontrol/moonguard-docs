@@ -16,7 +16,7 @@ composer require taecontrol/moonguard
 
 Clone the [MoonGuard Repository](https://github.com/teacontrol/moonguard)
 
-Once you have clone it, in your `composer.json` of your project add the
+Once you have clone it, update the `composer.json` of your project: 
 **repository** key:
 
 ```json
