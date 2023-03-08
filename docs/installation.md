@@ -29,7 +29,7 @@ Once you have clone it, update the `composer.json` of your project:
     ]
 }
 ```
-Then in the **require** key add the MoonGuard package:
+Then add MoonGuard package in the `require` key:
 
 ```json
 {
