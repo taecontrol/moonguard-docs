@@ -28,7 +28,7 @@ MoonGuard is still in early development so your feedback for improvement or bug 
 
 ## MoonGuard The Software Creator's Journey Vol. 1
 
-We have written a book about our journey creating MoonGuard. In this material, we document in-depth the development of MoonGuard, explaining how each of its functionalities was created step by step. If you wish to learn more about how to create a product from scratch to publication, we recommend this material. You can get a [copy of this book through this link](https://moonguard.dev/#pricing).
+We have written a book about our journey creating MoonGuard. In this material, we document in-depth the development of MoonGuard, explaining how each of its functionalities was created step by step. If you wish to learn more about how we created MoonGuard from scratch to publication with all its secrets and tricks, we recommend this material. You can get a [copy of this book through this link](https://moonguard.dev/#pricing).
 
 ## Requirements
 Moonguard has some requirements you should be aware of:
