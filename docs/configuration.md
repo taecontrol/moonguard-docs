@@ -6,7 +6,11 @@ sidebar_position: 3
 
 # Configuration
 
-This file is available in config/moonguard.php, and we have prepared a default configuration. However, most of the configuration can be customized to suit your own needs, such as **models**, **middleware**, **listeners**, **notifications**, etc.
+You can find MoonGuard configuration in `config/moonguard.php`. The configuration can be customized to suit your projects needs, such as **models**, **middleware**, **listeners**, **notifications**, etc.
+
+:::info Notice
+It's recommend to update the `User` model to your own project's `User` model `\App\Models\User::class`.
+:::
 
 ```php
 <?php
@@ -78,11 +82,4 @@ return [
         ],
     ],
 ];
-```
-<br/>
-
-If you made changes to this file remember to delete current config cache from your Laravel app:
-
-```bash
-php artisan config:clear
 ```
