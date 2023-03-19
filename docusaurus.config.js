@@ -70,13 +70,14 @@ const config = {
           alt: "Moonguard Imagotype",
           src: "img/imagotype.png",
           srcDark: "img/imagotype.png",
+          href: 'https://moonguard.dev'
         },
         items: [
           {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Docs",
+            label: "Home",
           },
         ],
       },
