@@ -38,12 +38,20 @@ const config = {
         blog: false,
         theme: {
           customCss: [
-            require.resolve("./src/css/custom.css"), 
+            require.resolve("./src/css/custom.css"),
             require.resolve("./src/css/code.css")
           ],
         },
       }),
     ],
+  ],
+
+  scripts: [
+    {
+      src: 'https://analytics.docs.moonguard.dev/script.js',
+      defer: true,
+      'data-site': 'FJKXMHQW',
+    }
   ],
 
   themeConfig:
