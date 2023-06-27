@@ -65,6 +65,11 @@ Then add MoonGuard package and version `dev-main` in the `require` key:
 }
 ```
 
+Finally you can run the `composer update` command to install MoonGuard (locally) in your project.
+
+```bash
+composer update
+```
 
 # Moonguard Command Scheduler
 
@@ -82,10 +87,4 @@ protected function schedule(Schedule $schedule)
     '* * * * *'
   );
 }
-```
-
-Finally you can run the `composer update` command to install MoonGuard (locally) in your project.
-
-```bash
-composer update
 ```
