@@ -14,20 +14,6 @@ MoonGuard must be installed in a Laravel project using Composer.
 composer require taecontrol/moonguard
 ```
 
-After installation you need to register two service providers in the `config/app.php`:
-
-```php
-  'providers' => [
-    // ...
-    Taecontrol\MoonGuard\Providers\MoonGuardServiceProvider::class,
-    Taecontrol\MoonGuard\Providers\MoonGuardFilamentServiceProvider::class,
-  ]
-```
-
-:::info Notice
-If you don't intend to use Filament, you should remove **_MoonguardFilamentServiceProvider::class_** from your app providers array.
-:::
-
 ## Migrations and Configuration file
 
 To publish the migrations and the configuration file use:
