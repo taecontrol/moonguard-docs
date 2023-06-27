@@ -65,6 +65,25 @@ Then add MoonGuard package and version `dev-main` in the `require` key:
 }
 ```
 
+
+# Moonguard Command Scheduler
+
+We created a helper class with a static function that executes the Moonguard commands. You must pass in the Schedule object and two cron strings (one for the Uptime Check and one for the SSL Certificate Check) to the function:
+
+```php title="app/Console/Kernel.php"
+use Taecontrol\MoonGuard\Console\MoonGuardCommandsScheduler;
+//...
+
+protected function schedule(Schedule $schedule)
+{
+  MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
+    $schedule, 
+    '* * * * *', 
+    '* * * * *'
+  );
+}
+```
+
 Finally you can run the `composer update` command to install MoonGuard (locally) in your project.
 
 ```bash
