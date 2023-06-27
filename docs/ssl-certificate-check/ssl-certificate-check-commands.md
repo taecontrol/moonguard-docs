@@ -8,7 +8,17 @@ sidebar_position: 2
 
 ## CheckSslCertificateCommand
 
-This command verifies the SSL certificates of all your registered sites, but only if the SSL Certificate Check feature is enabled and the sites are not in maintenance mode:
+To add the `CheckSslCertificateCommand` to your Laravel application, follow these steps:
+
+Open `app/Console/Kernel.php` file in your Laravel project and import the `CheckSslCertificateCommand` class:
+
+`use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;`
+
+Inside the schedule method of the Kernel class, add the following line of code:
+`$schedule->command(CheckSslCertificateCommand::class)->everyMinute();`
+This line schedules the CheckUptimeCommand to run every minute.
+
+This command is responsible for verifying SSL certificates of registered sites, but only if the verification function is enabled and they are not in maintenance mode.
 
 ```php title="app/Console/Kernel.php"
 use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;

@@ -1,7 +1,7 @@
 ---
 id: extending-listeners
 slug: /extending-listeners
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 # Extending Listeners
