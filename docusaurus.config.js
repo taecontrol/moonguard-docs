@@ -33,6 +33,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
+          path: 'docs',
           routeBasePath: "/",
         },
         blog: false,
@@ -43,6 +44,30 @@ const config = {
           ],
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'krater',
+        path: 'krater/docs',
+        routeBasePath: '/krater',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ... other options
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'larvis',
+        path: 'larvis/docs',
+        routeBasePath: '/larvis',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ... other options
+      },
     ],
   ],
 
@@ -77,7 +102,25 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Home",
+            label: "MoonGuard",
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "Larvis",
+            docsPluginId: "larvis"
+          },
+          {
+            type: "doc",
+            docId: "intro",
+            position: "left",
+            label: "Krater",
+            docsPluginId: "krater"
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
           },
         ],
       },
