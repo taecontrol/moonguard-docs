@@ -6,11 +6,15 @@ sidebar_position: 3
 
 # Configuration
 
-You can find MoonGuard configuration in `config/moonguard.php`. The configuration can be customized to suit your projects needs, such as **models**, **middleware**, **listeners**, **notifications**, etc.
+If you need to modify the default configuration of MoonGuard, you can publish
+the configuration file using:
 
-:::info Notice
-It's recommend to update the `User` model to your own project's `User` model `\App\Models\User::class`.
-:::
+```bash
+php artisan vendor:publish --tag="moonguard-config"
+```
+
+The configuration file on `config/moonguard.php` can be customized to suit your
+projects needs, it is possible to modify *models*, *events*, *listeners* and *notifications*.
 
 ```php
 <?php
