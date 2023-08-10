@@ -1,7 +1,7 @@
 ---
-id: intro
+id: kraterIntro
 slug: /
 sidebar_position: 1
 ---
 
-# Krater
+#  Introduction

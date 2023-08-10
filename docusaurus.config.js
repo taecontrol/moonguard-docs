@@ -55,18 +55,6 @@ const config = {
         path: 'krater/docs',
         routeBasePath: '/krater',
         sidebarPath: require.resolve('./sidebars.js'),
-        // ... other options
-      },
-    ],
-
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'larvis',
-        path: 'larvis/docs',
-        routeBasePath: '/larvis',
-        sidebarPath: require.resolve('./sidebars.js'),
-        // ... other options
       },
     ],
   ],
@@ -100,20 +88,13 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "moonGuardIntro",
             position: "left",
             label: "MoonGuard",
           },
           {
             type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Larvis",
-            docsPluginId: "larvis"
-          },
-          {
-            type: "doc",
-            docId: "intro",
+            docId: "kraterIntro",
             position: "left",
             label: "Krater",
             docsPluginId: "krater"
@@ -121,6 +102,11 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right',
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            docsPluginId: 'krater',
           },
         ],
       },

@@ -1,5 +1,5 @@
 ---
-id: intro
+id: moonGuardIntro
 slug: /
 sidebar_position: 1
 ---
