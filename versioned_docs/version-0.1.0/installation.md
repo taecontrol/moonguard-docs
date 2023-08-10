@@ -6,85 +6,32 @@ sidebar_position: 2
 
 # Installation
 
-MoonGuard must be installed in a Laravel project using Composer.
+## Requirements
+Before using MoonGuard, make sure you have the following installed:
+- Laravel Framework 9.0
+- Filament 2.0
+- Composer
+- Node.js (Version 16+)
 
-## Installation via Composer
+MoonGuard must be installed in a Laravel project using Composer.
+Once you have created your Laravel project and setup with [Filament](https://filamentphp.com/docs/2.x/admin/installation)
+you can install MoonGuard via composer:
 
 ```bash
-composer require taecontrol/moonguard
+composer require taecontrol/moonguard:0.1.0
 ```
 
-## Migrations and Configuration file
-
-To publish the migrations and the configuration file use:
+Then you need publish the moonguard migrations:
 
 ```bash
 php artisan vendor:publish --tag="moonguard-migrations"
-php artisan vendor:publish --tag="moonguard-config"
 ```
 
-You will be able to find a migration file called `create_moonguard_table.php` in your `database/migration` directory, and a configuration file called `config/moonguard.php`. To migrate the Moonguard table, run the following command:
+finally run the migrations:
 
 ```bash
 php artisan migrate
 ```
+In the `/admin` route you will see the moonguard installed.
 
-## Queues and Workers
-
-We use queues for notifications, so we recommend to configure Redis in your project and then run a worker:
-
-```bash
-php artisan queue:work
-```
-
-
-## Development and local usage
-
-In case you intend to extend or modify MoonGuard, you've to clone [MoonGuard repository](https://github.com/teacontrol/moonguard) in your disk.
-
-Once you have clone it, update the `composer.json` of one of your projects where you intend to use MoonGuard as a dependecy, update the `repositories` key:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../<path>/moonguard"
-    }
-  ]
-}
-```
-
-Then add MoonGuard package and version `dev-main` in the `require` key:
-
-```json
-{
-  "require": {
-    "taecontrol/moonguard": "dev-main"
-  }
-}
-```
-
-Finally you can run the `composer update` command to install MoonGuard (locally) in your project.
-
-```bash
-composer update
-```
-
-# Moonguard Commands Scheduler
-
-We created a helper class with a static function that executes the Moonguard commands. You must pass in the Schedule object and two cron strings (one for the Uptime Check and one for the SSL Certificate Check) to the function:
-
-```php title="app/Console/Kernel.php"
-use Taecontrol\MoonGuard\Console\MoonGuardCommandsScheduler;
-//...
-
-protected function schedule(Schedule $schedule)
-{
-  MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
-    $schedule, 
-    '* * * * *', 
-    '* * * * *'
-  );
-}
-```
+![new dashboard](./installation/img/new_dashboard.png)
