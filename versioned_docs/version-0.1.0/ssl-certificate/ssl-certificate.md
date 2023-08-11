@@ -32,13 +32,14 @@ The SSL certificate can be viewed in your dashboard.
 Other behaviors of the SSL certificate can be disabled or modified in the configuration file.
 
 ```php
-    'ssl_certificate_check' => [
-        'enabled' => true,
-        'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
-
-        'notify_expiring_soon_if_certificate_expires_within_days' => 7,
-        'cron_schedule' => '* * * * *',
-    ],
+[
+  'ssl_certificate_check' => [
+    'enabled' => true,
+    'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
+    'notify_expiring_soon_if_certificate_expires_within_days' => 7,
+    'cron_schedule' => '* * * * *',
+  ],
+]
 ```
 
 :::caution Heads Up

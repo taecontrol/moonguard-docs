@@ -31,21 +31,21 @@ following code to the `app/Exceptions/Handler.php` file:
 ```php
 use Taecontrol\Larvis\Larvis;
 
-        /**
-     * Register the exception handling callbacks for the application.
-     *
-     * @return void
-     */
-    public function register()
+/**
+* Register the exception handling callbacks for the application.
+*
+* @return void
+*/
+public function register()
 {
-    if (! app()->environment('testing')) {
-        $this->reportable(function (Throwable $e) {
-            /** @var Larvis $larvis */
-            $larvis = app(Larvis::class);
+  if (! app()->environment('testing')) {
+    $this->reportable(function (Throwable $e) {
+      /** @var Larvis $larvis */
+      $larvis = app(Larvis::class);
 
-            $larvis->captureException($e);
-        });
-    }
+      $larvis->captureException($e);
+    });
+  }
 ```
 
 Exception capture and sending won’t work if your project's `APP_ENV` is set to

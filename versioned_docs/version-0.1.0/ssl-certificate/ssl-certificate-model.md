@@ -45,10 +45,7 @@ use Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck;
 
 class UptimeCheck extends Model implements MoonGuardSslCertificateCheck
 {
-
-    // Implementation here
-
-    // Add other methods required by the interface
+  //Contract implementation
 }
 ```
 2. Implement all the properties and methods required, you can guide yourself
@@ -58,10 +55,12 @@ model from Moonguard here a resume.
 3. Replace the SslCertificateCheck class in the configuration file.
 
 ```php
-'ssl_certificate_check' => [
-        'enabled' => true,
-        'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class, //-> replace model
-        'notify_expiring_soon_if_certificate_expires_within_days' => 7,
-        'cron_schedule' => '* * * * *',
-    ],
+[
+  'ssl_certificate_check' => [
+    'enabled' => true,
+    'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class, //-> replace model
+    'notify_expiring_soon_if_certificate_expires_within_days' => 7,
+    'cron_schedule' => '* * * * *',
+  ],
+]
 ```

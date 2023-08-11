@@ -37,13 +37,14 @@ If the site is down, the command will return Down.
 Users can also disable or modify other behaviors in the MoonGuard config file.
 
 ```php
-'uptime_check' => [
+[
+  'uptime_check' => [
     'enabled' => true,
     'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class,
-
     'notify_failed_check_after_consecutive_failures' => 1,
     'resend_uptime_check_failed_notification_every_minutes' => 5,
-],
+  ],
+]
 ```
 :::caution Heads Up
 If you have a site in maintenance mode and had previously done an uptime check

@@ -20,23 +20,25 @@ use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
 
 class Kernel extends ConsoleKernel
 {
-    //...
+  //...
 }
 ```
 
 Next, you can specify when the command should run in the schedule method.
 
 ```php
+<?php
+
 /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
-        $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
-    }
+* Define the application's command schedule.
+*
+* @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+* @return void
+*/
+protected function schedule(Schedule $schedule)
+{
+  $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
+}
 ```
 
 In this case, we can set the `CheckSslCertificateCommand` to run every 2 hours.

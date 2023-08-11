@@ -40,6 +40,8 @@ following definition:
 | `exceptionLogGroups()`                                 | HasMany        | Returns a **HasMany** relationship between the **Site** model and the **ExceptionLogGroup** model. This method allows you to retrieve the exception log groups associated with the website.                                 |
 | `newCollection(array $models = [])`                    | SiteCollection | Overrides the **newCollection** method to return a custom **SiteCollection** instance. This method allows you to customize the collection returned when querying the **Site** model.                                        |
 
+<br/>
+
 # Using a custom Site Model
 In case is needed to use a custom Site model we recommend the following steps:
 1. Create a new `Site` class that extends from `Illuminate\Database\Eloquent\Model`
@@ -53,7 +55,7 @@ use Taecontrol\MoonGuard\Contracts\MoonGuardSite;
 
 class Site extends Model implements MoonGuardSite
 {
-    // Implementation of the interface
+  //Contract implementation
 }
 ```
 
@@ -64,7 +66,9 @@ model from Moonguard.
 3. Replace the new `Site` model class in the configuration file.
 
 ```php
-'site' => [
+[
+  'site' => [
     'model' => \Taecontrol\MoonGuard\Models\Site::class,//replace model
-],
+  ],
+]
 ```

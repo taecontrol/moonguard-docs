@@ -86,10 +86,7 @@ use Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog;
 
 class UptimeCheck extends Model implements MoonGuardExceptionLog
 {
-
-    // Implementation here
-
-    // Add other methods required by the interface
+  // Contract implementation
 }
 ```
 
@@ -99,16 +96,18 @@ with the original [`ExceptionLog.php`](https://github.com/taecontrol/moonguard/b
 3. Replace the new ExceptionLog model class in the configuration file.
 
 ```php
-'exceptions' => [
-        'enabled' => true,
-        'notify_time_between_group_updates_in_minutes' => 15,
-        'exception_log' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
-        ],
-        'exception_log_group' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
-        ],
+[
+  'exceptions' => [
+    'enabled' => true,
+    'notify_time_between_group_updates_in_minutes' => 15,
+    'exception_log' => [
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
     ],
+    'exception_log_group' => [
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+    ],
+  ],
+]
 ```
 
 In case you want to re implement the ExceptionLogGroup model you can use the

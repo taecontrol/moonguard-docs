@@ -21,13 +21,12 @@ This can be modified by your own preference in the configuration file:
 
 ```php
 [
-    //...
-    'notifications' => [
-        'channels' => ['mail', 'slack'],
-        'slack' => [
-            'webhook_url' => env('SLACK_WEBHOOK_URL'),
-        ],
+  'notifications' => [
+    'channels' => ['mail', 'slack'],
+    'slack' => [
+      'webhook_url' => env('SLACK_WEBHOOK_URL'),
     ],
+  ],
 ];
 ```
 

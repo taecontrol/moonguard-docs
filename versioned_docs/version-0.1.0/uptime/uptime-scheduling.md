@@ -24,22 +24,24 @@ use Taecontrol\MoonGuard\Console\Commands\CheckUptimeCommand;
 
 class Kernel extends ConsoleKernel
 {
-    //...
+  //...
 }
 ```
 Then you can add when the command run in the schedule method:
 
 ```php
+<?php
+
 /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
-    protected function schedule(Schedule $schedule)
-    {
-                $schedule->command(CheckUptimeCommand::class)->everyMinute();
-    }
+* Define the application's command schedule.
+*
+* @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+* @return void
+*/
+protected function schedule(Schedule $schedule)
+{
+  $schedule->command(CheckUptimeCommand::class)->everyMinute();
+}
 ```
 In this case we can run the `CheckUptimeCommand` every minute. You can check more
 options in the [Laravel documentation](https://laravel.com/docs/9.x/scheduling#schedule-frequency-options).

@@ -53,24 +53,21 @@ use Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck;
 
 class UptimeCheck extends Model implements MoonGuardUptimeCheck
 {
-
-    // Implementation here
-
-    // Add other methods required by the interface
+  //Contract implementation
 }
 ```
-<!-- TODO:revisar link -->
 2. Implement all the properties and methods required, you can guide yourself with
 the original [`UptimeCheck.php`](https://github.com/taecontrol/moonguard/blob/v0.1.0/src/Models/UptimeCheck.php) model from Moonguard but here a resume.
 
 3. Replace the new Uptime Check model class in the configuration file.
 
 ```php
-'uptime_check' => [
+[
+  'uptime_check' => [
     'enabled' => true,
     'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model
-
     'notify_failed_check_after_consecutive_failures' => 1,
     'resend_uptime_check_failed_notification_every_minutes' => 5,
-],
+  ],
+]
 ```

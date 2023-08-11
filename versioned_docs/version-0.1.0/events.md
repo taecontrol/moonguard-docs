@@ -67,14 +67,13 @@ own listeners from the MoonGuard configuration file:
 
 ```php
 [
-    //...
-    'events' => [
-        'listen' => [
-            \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\MyListener::class,
-            ],
-            //...
-        ],
-    ]
+  'events' => [
+    'listen' => [
+      \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
+        \Taecontrol\MoonGuard\Listeners\MyListener::class,
+      ],
+      //...
+    ],
+  ]
 ];
 ```

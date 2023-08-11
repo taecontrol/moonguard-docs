@@ -5,11 +5,12 @@ sidebar_position: 1
 ---
 # Email configuration
 
-To set up a testing mail delivery server, we recommend using either
-[Mailtrap.io](http://mailtrap.io/) or [Mailhog](https://github.com/mailhog/MailHog).
-Both of these options are easy to configure and use.
 
-Then add the following variables in your `.env` file:
+MoonGuard uses the Mail configuration that the user's app has in their project,
+and it is not possible to send notifications via email without it.
+
+Once you have config your email, add the following variables of the email in the
+project `.env` file:
 
 ```php
 MAIL_MAILER=smtp

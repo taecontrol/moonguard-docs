@@ -37,14 +37,16 @@ On this view, users can resolve, ignore, review, or mark exceptions as unresolve
 The behavior of the exception log can also be modified in the MoonGuard config file.
 
 ```php
-'exceptions' => [
-        'enabled' => true,
-        'notify_time_between_group_updates_in_minutes' => 15,
-        'exception_log' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
-        ],
-        'exception_log_group' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
-        ],
+[
+  'exceptions' => [
+    'enabled' => true,
+    'notify_time_between_group_updates_in_minutes' => 15,
+    'exception_log' => [
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
     ],
+    'exception_log_group' => [
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+    ],
+  ],
+]
 ```

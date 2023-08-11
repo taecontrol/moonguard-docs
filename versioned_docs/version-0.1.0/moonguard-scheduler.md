@@ -11,8 +11,9 @@ commands. You must pass in the Schedule object and two cron strings
 (one for the Uptime Check and one for the SSL Certificate Check) to the function:
 
 ```php
+<?php
+
 use Taecontrol\MoonGuard\Console\MoonGuardCommandsScheduler;
-//...
 
 protected function schedule(Schedule $schedule)
 {
