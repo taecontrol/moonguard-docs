@@ -65,7 +65,7 @@ the original [`UptimeCheck.php`](https://github.com/taecontrol/moonguard/blob/v0
 
 3. Replace the new Uptime Check model class in the configuration file.
 
-```json
+```php
 'uptime_check' => [
     'enabled' => true,
     'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model

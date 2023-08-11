@@ -14,7 +14,7 @@ section.
 You can set up the Uptime check either when creating a new site or when editing
 an existing one in the 'enable check' section.
 
-<!-- ![edit uptime](./img/check-uptime.png) -->
+![edit uptime](./img/check-uptime.png)
 
 :::caution Heads Up
 Please ensure that your site is not in maintenance mode, as this will prevent
@@ -28,11 +28,11 @@ information in the Dashboard panel.
 php artisan check:uptime
 ```
 
-<!-- ![status uptime](./img/status-uptime.png) -->
+![status uptime](./img/status-uptime.png)
 
 If the site is down, the command will return Down.
 
-<!-- ![down uptime](./img/down-uptime.png) -->
+![down uptime](./img/down-uptime.png)
 
 Users can also disable or modify other behaviors in the MoonGuard config file.
 
