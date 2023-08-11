@@ -28,7 +28,9 @@ following definition:
 | `certificateIsAboutToExpire(int $maxDaysToExpire)` | bool | Returns a boolean indicating whether the SSL certificate is about to expire within the specified number of days. |
 | `isEnabled()` | Attribute | Returns an `Attribute` instance that indicates whether the SSL certificate check is enabled. |
 
-## Create a custom SslCertificateCheck Model
+<br />
+
+## Using a custom SslCertificateCheck Model
 
 In case you want to create a custom SslCertificateCheck model or extends it
 capabilities we recommend you the following steps:

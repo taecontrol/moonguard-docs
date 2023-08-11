@@ -6,11 +6,8 @@ sidebar_position: 1
 # Email configuration
 
 
-MoonGuard uses the Mail configuration that the user's app has in their project,
-and it is not possible to send notifications via email without it.
-
-Once you have config your email, add the following variables of the email in the
-project `.env` file:
+MoonGuard uses the mail configuration from your Laravel app to send any email
+notification.
 
 ```php
 MAIL_MAILER=smtp
@@ -22,3 +19,6 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="demo@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
+
+After properly setting up the parameters of your mail provider, MoonGuard is
+able to send email notifications.

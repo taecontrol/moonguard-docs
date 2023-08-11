@@ -37,7 +37,10 @@ following definition:
 | `isEnabled()` | Attribute | Returns an `Attribute` instance that indicates whether the uptime check is enabled. |
 | `booted()` | void | Overrides the `booted` method to add a callback that sets the status last change date when the status of the uptime check changes. |
 
-# Creating a custom UptimeCheck model
+
+<br />
+
+# Using a custom UptimeCheck model
 
 If you wish to create a custom UptimeCheck model or extend its capabilities, we
 recommend following these steps:

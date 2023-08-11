@@ -69,7 +69,9 @@ be useful for your project:
 | `exceptionLogs()` | HasMany | Returns a `HasMany` relationship between the `ExceptionLogGroup` model and the `ExceptionLog` model. This method allows you to retrieve the exception logs associated with this exception log group. |
 | `site()` | BelongsTo | Returns a `BelongsTo` relationship between the `ExceptionLogGroup` model and the `Site` model. This method allows you to retrieve the site associated with this exception log group. |
 
-# Create a custom Exception Log Model
+<br />
+
+# Using a custom Exception Log Model
 
 In case you want to create a custom **ExceptionLog** model or extends it
 capabilities we recommend you the following steps:
