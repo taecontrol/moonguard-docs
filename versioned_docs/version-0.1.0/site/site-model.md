@@ -63,7 +63,7 @@ model from Moonguard.
 
 3. Replace the new `Site` model class in the configuration file.
 
-```json
+```php
 'site' => [
     'model' => \Taecontrol\MoonGuard\Models\Site::class,//replace model
 ],
