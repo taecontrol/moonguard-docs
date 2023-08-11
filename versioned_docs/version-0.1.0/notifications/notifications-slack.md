@@ -4,15 +4,13 @@ slug: /notification-slack
 sidebar_position: 2
 ---
 
-# Via Slack
+# Slack Configuration
+MoonGuard uses `laravel/slack-notification-channel` as a dependency to build
+Slack notifications, in case you want to send MoonGuard notifications to Slack
+you need a Slack Weebhook URL.
 
-## Notifications via Slack
-
-MoonGuard uses `laravel/slack-notification-channel` as a dependency to build Slack notifications, in case you want to send MoonGuard notifications to Slack you need a Slack Weebhook URL.
-
-You can get this webhook through creating a [Slack App on Slack API site.](https://api.slack.com/apps?new_app=1) It's a easy process where you have to create an app for your workspace.
-
-We took some screenshots for guidence:
+You can get this webhook through creating a [Slack App on Slack API site.](https://api.slack.com/apps?new_app=1)
+It's a easy process where you have to create an app for your workspace.
 
 1. Create an App from scratch.
 

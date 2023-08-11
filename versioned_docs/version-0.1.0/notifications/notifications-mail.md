@@ -3,21 +3,21 @@ id: notifications-mail
 slug: /notifications-mail
 sidebar_position: 1
 ---
+# Email configuration
 
-# Via Mail
+To set up a testing mail delivery server, we recommend using either
+[Mailtrap.io](http://mailtrap.io/) or [Mailhog](https://github.com/mailhog/MailHog).
+Both of these options are easy to configure and use.
 
-## Notifications via mail
+Then add the following variables in your `.env` file:
 
-Notifications via mail are active by default, you can find this in the `moonguard.php` config file:
-
-```php title="./config/moonguard.php"
-[
-  //...
-  'notifications' => [
-      'channels' => ['mail'],
-      //...
-  ],
-]
+```php
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=xxxxxxxxxxx
+MAIL_PASSWORD=xxxxxxxxxxx
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="demo@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
 ```
-
-You can remove this channel just by removing the `'mail'` string from the array.
