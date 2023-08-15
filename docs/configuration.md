@@ -6,80 +6,147 @@ sidebar_position: 3
 
 # Configuration
 
-You can find MoonGuard configuration in `config/moonguard.php`. The configuration can be customized to suit your projects needs, such as **models**, **middleware**, **listeners**, **notifications**, etc.
+If there is a need to modify the default configuration of MoonGuard, the
+configuration file can be published using:
 
-:::info Notice
-It's recommend to update the `User` model to your own project's `User` model `\App\Models\User::class`.
-:::
+```bash
+php artisan vendor:publish --tag="moonguard-config"
+```
 
-```php
+The configuration file is on `config/moonguard.php` and can be customized to
+suit your needs, it is possible to modify **models**, **events**, **listeners**
+and **notifications**.
+
+```bash
 <?php
 
 return [
-    'user' => [
-        'model' => \Taecontrol\MoonGuard\Models\User::class,
-    ],
-    'site' => [
-        'model' => \Taecontrol\MoonGuard\Models\Site::class,
-    ],
-    'uptime_check' => [
-        'enabled' => true,
-        'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class,
+  'user' => [
+    /*
+     * The user model to use.
+     */
+    'model' => \Taecontrol\MoonGuard\Models\User::class,
+  ],
+  'site' => [
+    /*
+     * The site model to use.
+     */
+    'model' => \Taecontrol\MoonGuard\Models\Site::class,
+  ],
+  'uptime_check' => [
+    /*
+     * Enable or disable uptime checks globally.
+     */
+    'enabled' => true,
 
-        'notify_failed_check_after_consecutive_failures' => 1,
-        'resend_uptime_check_failed_notification_every_minutes' => 5,
-    ],
-    'ssl_certificate_check' => [
-        'enabled' => true,
-        'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
+    /*
+     * The uptime check model to use.
+     */
+    'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class,
 
-        'notify_expiring_soon_if_certificate_expires_within_days' => 7,
-        'cron_schedule' => '* * * * *',
+    /*
+     * The number of consecutive failures before a notification should be sent.
+     */
+    'notify_failed_check_after_consecutive_failures' => 1,
+
+    /*
+     * How often a notification is resent after the uptime check fails
+    */
+    'resend_uptime_check_failed_notification_every_minutes' => 5,
+  ],
+  'ssl_certificate_check' => [
+    /*
+     * Enable or disable ssl certificate checks globally.
+     */
+    'enabled' => true,
+
+    /*
+     * The ssl certificate check model to use.
+     */
+    'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
+
+    /*
+     * The number of days before a certificate expires to send a notification.
+     */
+    'notify_expiring_soon_if_certificate_expires_within_days' => 7,
+  ],
+  'exceptions' => [
+    /*
+     * Enable or disable exception logging globally.
+     */
+    'enabled' => true,
+
+    /*
+     * The number of minutes that should be waited before sending a notification about exception log group updates.
+     */
+    'notify_time_between_group_updates_in_minutes' => 15,
+
+    'exception_log' => [
+      /*
+       * The exception log model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
     ],
-    'exceptions' => [
-        'enabled' => true,
-        'notify_time_between_group_updates_in_minutes' => 15,
-        'exception_log' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
-        ],
-        'exception_log_group' => [
-            'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
-        ],
+
+    'exception_log_group' => [
+      /*
+       * The exception log group model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
     ],
-    'routes' => [
-        'prefix' => 'api',
-        'middleware' => 'throttle:api',
+  ],
+  'routes' => [
+    /*
+     * The prefix for the MoonGuard API routes.
+     */
+    'prefix' => 'moonguard/api',
+
+    /*
+     * The middleware for the MoonGuard API routes.
+     */
+    'middleware' => 'throttle:api',
+  ],
+  'events' => [
+    /*
+     * The events that can be listened for.
+     * You can add your own listeners here.
+     */
+    'listen' => [
+      \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\UptimeCheckFailedEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\UptimeCheckFailedListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\RequestTookLongerThanMaxDurationEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\RequestTookLongerThanMaxDurationListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\SslCertificateExpiresSoonEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\SslCertificateExpiresSoonListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\SslCertificateCheckFailedEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\SslCertificateCheckFailedListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\ExceptionLogGroupCreatedEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupCreatedListener::class,
+      ],
+      \Taecontrol\MoonGuard\Events\ExceptionLogGroupUpdatedEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupUpdatedListener::class,
+      ],
     ],
-    'events' => [
-        'listen' => [
-            \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
-            ],
-            \Taecontrol\MoonGuard\Events\UptimeCheckFailedEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\UptimeCheckFailedListener::class,
-            ],
-            \Taecontrol\MoonGuard\Events\RequestTookLongerThanMaxDurationEvent::class => [
-                \Taecontrol\MoonGuard\Events\RequestTookLongerThanMaxDurationEvent::class,
-            ],
-            \Taecontrol\MoonGuard\Events\SslCertificateExpiresSoonEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\SslCertificateExpiresSoonListener::class,
-            ],
-            \Taecontrol\MoonGuard\Events\SslCertificateCheckFailedEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\SslCertificateCheckFailedListener::class,
-            ],
-            \Taecontrol\MoonGuard\Events\ExceptionLogGroupCreatedEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupCreatedListener::class,
-            ],
-            \Taecontrol\MoonGuard\Events\ExceptionLogGroupUpdatedEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupUpdatedListener::class,
-            ],
-        ],
+  ],
+  'notifications' => [
+    /*
+     * The notification channels that are used by default.
+     */
+    'channels' => ['mail', 'slack'],
+
+    'slack' => [
+      /*
+       * The Slack webhook url setup.
+       */
+      'webhook_url' => env('SLACK_WEBHOOK_URL'),
     ],
-    'notifications' => [
-        'channels' => ['mail', 'slack'],
-        'slack' => [
-            'webhook_url' => env('SLACK_WEBHOOK_URL'),
-        ],
-    ],
+  ],
 ];
 ```
