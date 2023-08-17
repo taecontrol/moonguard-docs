@@ -44,30 +44,31 @@ The behavior of the exception log can also be modified in the MoonGuard config f
 
 ```php
 <?php
-
-'exceptions' => [
-  /*
-   * Enable or disable exception logging globally.
-   */
-  'enabled' => true,
-
-  /*
-   * The number of minutes that should be waited before sending a notification about exception log group updates.
-   */
-  'notify_time_between_group_updates_in_minutes' => 15,
-
-  'exception_log' => [
+[
+  'exceptions' => [
     /*
-     * The exception log model to use.
+     * Enable or disable exception logging globally.
      */
-    'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
-  ],
+    'enabled' => true,
 
-  'exception_log_group' => [
     /*
-     * The exception log group model to use.
+     * The number of minutes that should be waited before sending a notification about exception log group updates.
      */
-    'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+    'notify_time_between_group_updates_in_minutes' => 15,
+
+    'exception_log' => [
+      /*
+       * The exception log model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
+    ],
+
+    'exception_log_group' => [
+      /*
+       * The exception log group model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+    ],
   ],
-],
+]
 ```

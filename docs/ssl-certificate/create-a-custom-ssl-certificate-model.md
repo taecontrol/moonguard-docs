@@ -1,6 +1,6 @@
 ---
-id: custom-ssl-certificate-model
-slug: /custom-ssl-certificate-model
+id: create-a-custom-ssl-certificate-model
+slug: /create-a-custom-ssl-certificate-model
 sidebar_position: 2
 ---
 
@@ -14,27 +14,27 @@ Model for your project doing the following steps.
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck` interface.
 
-```php
-<?php
+  ```php
+  <?php
 
-use Illuminate\Database\Eloquent\Model;
-use Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck;
+  use Illuminate\Database\Eloquent\Model;
+  use Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck;
 
-class SslCertificateCheck extends Model implements MoonGuardSslCertificateCheck
-{
-  //SslCertificateCheck implementation
-}
-```
+  class SslCertificateCheck extends Model implements MoonGuardSslCertificateCheck
+  {
+    //Contract implementation
+  }
+  ```
 
 2. Implement all the properties and methods required, you can guide yourself
-with [model reference](./create-a-custom-ssl-certificate-model#Model-Reference).
+with [model reference](./create-a-custom-ssl-certificate-model#model-reference).
 
 3. Replace the SslCertificateCheck class in the configuration file.
 
-```php
-<?php
+  ```php
+  <?php
 
-'ssl_certificate_check' => [
+  'ssl_certificate_check' => [
     /*
      * Enable or disable ssl certificate checks globally.
      */
@@ -44,8 +44,8 @@ with [model reference](./create-a-custom-ssl-certificate-model#Model-Reference).
      * The ssl certificate check model to use.
      */
     'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
-]
-```
+  ]
+  ```
 
 ## Model Reference
 

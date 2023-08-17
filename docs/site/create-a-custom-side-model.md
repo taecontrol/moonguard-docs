@@ -1,6 +1,6 @@
 ---
-id: custom-site-model
-slug: /custom-site-model
+id: create-a-custom-side-model
+slug: /create-a-custom-side-model
 sidebar_position: 1
 ---
 
@@ -12,32 +12,35 @@ we allow you to create a custom Site Model for your project doing the following 
 1. Create a new `Site` class that extends from `Illuminate\Database\Eloquent\Model` 
 and implements the `Taecontrol\MoonGuard\Contracts\MoonGuardSite` contract.
 
-```php
-<?php
+  ```php
+  <?php
 
-use Illuminate\Database\Eloquent\Model;
-use Taecontrol\MoonGuard\Contracts\MoonGuardSite;
+  use Illuminate\Database\Eloquent\Model;
+  use Taecontrol\MoonGuard\Contracts\MoonGuardSite;
 
-class Site extends Model implements MoonGuardSite
-{
-  // Site implementation
-}
-```
+  class Site extends Model implements MoonGuardSite
+  {
+    // Contract implementation
+  }
+  ```
 
 2. The `Site` class must implement all the properties and methods required, you
 can guide yourself with the
-[model reference](./create-a-custom-side-model#Model-Reference).
+[model reference](./create-a-custom-side-model#model-reference).
 
 3. Replace the new `Site` model class in the `config/moonguard.php` configuration file.
 
-```php
-'site' => [
-  /*
-   * The site model to use.
-   */
-  'model' => \App\Monitor\Models\MySite::class,
-],
-```
+  ```php
+  <?php
+  [
+    'site' => [
+      /*
+       * The site model to use.
+       */
+      'model' => \App\Monitor\Models\MySite::class,
+    ],
+  ]
+  ```
 
 ## Model Reference
 

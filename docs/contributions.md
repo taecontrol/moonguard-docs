@@ -1,7 +1,7 @@
 ---
 id: contributions
 slug: /contributions
-sidebar_position: 13
+sidebar_position: 11
 ---
 
 # Contributions Guide
@@ -11,19 +11,40 @@ At this time we are currently accepting the current forms of contributions:
 * Bug reports.
 * Pull requests for bug fixes.
 
-We are not accepting these forms of contributions:
-
-* New Features.
-
 ## Bug Reports
 
-If you encounter a bug, please make sure to include a descriptive title and a clear description of the issue in your report. It is also helpful to provide any relevant information and code samples that can help the maintainers replicate the bug and develop a fix as easily as possible.
+If you encounter a bug, please make sure to include a descriptive title and a
+clear description of the issue in your report. It is also helpful to provide
+any relevant information and code samples that can help the maintainers
+replicate the bug and develop a fix as easily as possible.
 
 ## Development
 
 ### Installation
 
-To install a development environment, you can refer to the manual installation guide found [here](https://docs.moonguard.dev/installation#local-development).
+To install a development environment, fork the MoonGuard project and clone it in
+your computer. Then create a laravel project and add in the `composer.json` the
+following:
+
+```php
+{
+
+    //Another keys....
+
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../<MoonGuard_path>/moonguard"
+        }
+    ]
+}
+```
+
+finally install the local package:
+
+```bash
+composer require taecontrol/moonguard
+```
 
 ### Pull requests
 

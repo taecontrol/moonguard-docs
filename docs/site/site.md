@@ -20,7 +20,7 @@ the site list will be empty as there are no existing records.
 
 You can also create a site from dashboard if there’s no site created.
 
-![dashboard site](./img/dashboard.png)
+![site-dashboard-create](./img/site-dashboard-create.png)
 
 MoonGuard requires the next parameters to be filled in order to create a new site:
 
@@ -35,18 +35,18 @@ MoonGuard requires the next parameters to be filled in order to create a new sit
 configured to use the token).
 - **Down for maintenance**: bypass all site checks if the site is in maintenance.
 
-![create site](./img/create-site.png)
+![site-create](./img/site-create.png)
 
 After creating multiple sites, they will be displayed in the list on the main
 **Sites** view. Clicking on a site will open the edit view, where you can make
 changes to the site. Additionally, you have the option to delete the site from
 the edit view.
 
-![list sites](./img/sites-list.png)
+![site-list](./img/sites-list.png)
 
 In the dashboard, you can also also see the general status for your sites.
 
-![dashboard sites](./img/dashboard-sites.png)
+![site-status](./img/site-status.png)
 
 :::caution Heads Up
 If you **delete** a site any data related to the site will be deleted as well.

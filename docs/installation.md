@@ -31,10 +31,6 @@ Since MoonGuard is still in beta, set the `minimum-stability` in your 
 `composer.json` to `dev`
 :::
 
-```php
-"minimum-stability": "dev",
-```
-
 Publish the MoonGuard assets files and migrations file in your project.
 
 ```php
@@ -64,7 +60,7 @@ php artisan make:filament-user
 
 ![dashboard](./installation/dashboard.png)
 
-### Moonguard Command Scheduler
+## Moonguard Command Scheduler
 
 The **MoonGuard Command Scheduler** is a helper utility that executes all the
 Moonguard commands related to checks:
@@ -98,7 +94,7 @@ protected function schedule(Schedule $schedule): void
 
 In case you want to setup individually each command  you can do it as following:
 
-### Scheduling CheckUptime Command
+## Scheduling CheckUptime Command
 
 Scheduling the Uptime Check can be done through the `CheckUptimeCommand` class
 and Laravel's command scheduler.

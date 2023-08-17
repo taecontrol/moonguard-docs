@@ -1,7 +1,7 @@
 ---
 id: events
 slug: /events
-sidebar_position: 2
+sidebar_position: 10
 ---
 
 # Events

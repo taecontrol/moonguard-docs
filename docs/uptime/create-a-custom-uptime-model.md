@@ -1,6 +1,6 @@
 ---
-id: custom-uptime-model
-slug: /custom-uptime-model
+id: create-a-custom-uptime-model
+slug: /create-a-custom-uptime-model
 sidebar_position: 2
 ---
 
@@ -14,33 +14,34 @@ the following steps.
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck` interface.
 
-```php
-<?php
+  ```php
+  <?php
 
-use Illuminate\Database\Eloquent\Model;
-use Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck;
+  use Illuminate\Database\Eloquent\Model;
+  use Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck;
 
-class UptimeCheck extends Model implements MoonGuardUptimeCheck
-{
-  // Contract implementation
-}
-```
+  class UptimeCheck extends Model implements MoonGuardUptimeCheck
+  {
+    // Contract implementation
+  }
+  ```
 
 1. Implement all the properties and methods required, you can guide yourself with
-the [model reference](./create-a-custom-uptime-model#Model-Reference).
+the [model reference](./create-a-custom-uptime-model#model-Reference).
 
 2. Replace the new Uptime Check model class in the configuration file.
 
-```php
-<?php
-
-'uptime_check' => [
-  /*
-   * The uptime check model to use.
-   */
-  'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model
-],
-```
+  ```php
+  <?php
+  [
+    'uptime_check' => [
+      /*
+       * The uptime check model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model
+    ],
+  ]
+  ```
 
 ## Model Reference
 

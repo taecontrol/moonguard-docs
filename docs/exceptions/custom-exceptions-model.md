@@ -1,6 +1,6 @@
 ---
-id: custom-exceptions-model
-slug: /custom-exceptions-model
+id: create-a-custom-exception-model
+slug: /create-a-custom-exception-model
 sidebar_position: 2
 ---
 
@@ -14,55 +14,55 @@ following steps.
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog` interface.
 
-```php
-<?php
+  ```php
+  <?php
 
-use Illuminate\Database\Eloquent\Model;
-use Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog;
+  use Illuminate\Database\Eloquent\Model;
+  use Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog;
 
-class ExceptionLog extends Model implements MoonGuardExceptionLog
-{
-  // Contract implementation
-}
-```
+  class ExceptionLog extends Model implements MoonGuardExceptionLog
+  {
+    // Contract implementation
+  }
+  ```
 
 2. Implement all the properties and methods required, you can guide yourself
-with the [model reference](./custom-exceptions-model#Model-Reference).
+with the [model reference](./create-a-custom-exception-model#model-reference).
 
 3. Replace the new ExceptionLog model class in the configuration file.
 
-```php
-<?php
+  ```php
+  <?php
+  [
+    'exceptions' => [
+      //...
+      'exception_log' => [
+        /*
+         * The exception log model to use.
+         */
+        'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
+      ],
 
-'exceptions' => [
-  //...
-  'exception_log' => [
-      /*
-       * The exception log model to use.
-       */
-      'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
-  ],
-
-  'exception_log_group' => [
-      /*
-       * The exception log group model to use.
-       */
-      'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
-  ],
-
-]
-```
+      'exception_log_group' => [
+        /*
+         * The exception log group model to use.
+         */
+        'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+      ],
+    ]
+  ]
+  ```
 
 In case you want to re implement the ExceptionLogGroup model you can use the
 guide of ExceptionLog model and implement
 `Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLogGroup` and `ExceptionLogGroup.php`
 
-Please check the [model reference](./custom-exceptions-model#Model-Reference)
+Please check the [model reference](./create-a-custom-exception-model#model-reference)
 for more information.
 
 ## Model Reference
 
-## Reference ExceptionLog model
+## ExceptionLog model
 
 ```php
 <?php
@@ -147,7 +147,7 @@ class ExceptionLog extends Model implements MoonGuardExceptionLog
 | exceptionLogGroup() | BelongsTo | Returns a BelongsTo relationship between the ExceptionLog model and the ExceptionLogGroup model. This method allows you to retrieve the exception log group that this exception log belongs to. |
 
 
-## Reference ExceptionLogGroup model
+## ExceptionLogGroup model
 
 ```php
 <?php
@@ -205,14 +205,14 @@ class ExceptionLogGroup extends Model implements MoonGuardExceptionLogGroup
 | first_seen | The date and time when the exception was first seen |
 | last_seen | The date and time when the exception was last seen |
 
-### **Casts**
+### Casts
 
 | Column Name | Description |
 | --- | --- |
 | first_seen | The date and time when the exception was first seen, casted to an immutable datetime object |
 | last_seen | The date and time when the exception was last seen, casted to an immutable datetime object |
 
-### **Methods**
+### Methods
 
 | Method Name | Return Type | Description |
 | --- | --- | --- |

@@ -1,14 +1,15 @@
 ---
-id: users
-slug: /users
-sidebar_position: 4
+id: create-a-custom-user-model
+slug: /create-a-custom-user-model
+sidebar_position: 9
 ---
 
-# Users
+# Create a custom user model
 
-Moonguard comes with its own user model (it has a default structure with some modifications), but you will most likely want to use your project's user model. If that's the case, the next section will help you make the necessary changes to the Moonguard configuration.
-
-## Custom User Model
+Moonguard comes with its own user model (it has a default structure with some
+modifications), but you will most likely want to use your project's user model.
+If that's the case, the next section will help you make the necessary changes
+to the Moonguard configuration.
 
 Follow the next steps to adapt your own `User` model to use MoonGuard features:
 
