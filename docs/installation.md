@@ -6,85 +6,172 @@ sidebar_position: 2
 
 # Installation
 
-MoonGuard must be installed in a Laravel project using Composer.
+## Requirements
 
-## Installation via Composer
+Before using MoonGuard, make sure you have the following installed:
+
+- Laravel Framework 10+
+- Filament 3.0+
+- Composer
+- Node.js (Version 18+)
+
+Filament is necessary to use MoonGuard in your project, you can install Filament
+by following the official documentation [here](https://filamentphp.com/docs/3.x/panels/installation).
+
+
+Once you setup your Laravel project with filament, you can install MoonGuard
+plugin via composer
 
 ```bash
-composer require taecontrol/moonguard
+composer require taecontrol/moonguard "^1.0.0@beta" -W
 ```
 
-## Migrations and Configuration file
+:::caution Heads Up
+Since MoonGuard is still in beta, set the `minimum-stability` in your 
+`composer.json` to `dev`
+:::
 
-To publish the migrations and the configuration file use:
+```php
+"minimum-stability": "dev",
+```
 
-```bash
+Publish the MoonGuard assets files and migrations file in your project.
+
+```php
+php artisan vendor:publish --tag="moonguard-assets"
+
 php artisan vendor:publish --tag="moonguard-migrations"
-php artisan vendor:publish --tag="moonguard-config"
 ```
 
-You will be able to find a migration file called `create_moonguard_table.php` in your `database/migration` directory, and a configuration file called `config/moonguard.php`. To migrate the Moonguard table, run the following command:
+In production, run the migrations:
 
 ```bash
 php artisan migrate
 ```
 
-## Queues and Workers
+Go to `/moonguard` route to check the MoonGuard admin panel page:
 
-We use queues for notifications, so we recommend to configure Redis in your project and then run a worker:
+![login](./installation/login.png)
 
-```bash
-php artisan queue:work
-```
-
-
-## Development and local usage
-
-In case you intend to extend or modify MoonGuard, you've to clone [MoonGuard repository](https://github.com/teacontrol/moonguard) in your disk.
-
-Once you have clone it, update the `composer.json` of one of your projects where you intend to use MoonGuard as a dependecy, update the `repositories` key:
-
-```json
-{
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../<path>/moonguard"
-    }
-  ]
-}
-```
-
-Then add MoonGuard package and version `dev-main` in the `require` key:
-
-```json
-{
-  "require": {
-    "taecontrol/moonguard": "dev-main"
-  }
-}
-```
-
-Finally you can run the `composer update` command to install MoonGuard (locally) in your project.
+If you don’t have any user, you can create a filament user to access to MoonGuard
+admin panel:
 
 ```bash
-composer update
+php artisan make:filament-user
 ```
 
-# Moonguard Commands Scheduler
+ Login and you will land in the dashboard
 
-We created a helper class with a static function that executes the Moonguard commands. You must pass in the Schedule object and two cron strings (one for the Uptime Check and one for the SSL Certificate Check) to the function:
+![dashboard](./installation/dashboard.png)
 
-```php title="app/Console/Kernel.php"
+### Moonguard Command Scheduler
+
+The **MoonGuard Command Scheduler** is a helper utility that executes all the
+Moonguard commands related to checks:
+
+- CheckUptimeCommand.
+- CheckSslCertificateCommand.
+
+You can use this utility to set up MoonGuard task scheduling faster.
+
+In order to use this utility, define a new schedule in your app and inside the
+`schedule` method of **`app/Console/Kernel.php`** . Use the static function
+`scheduleMoonGuardCommands()` from the **MCS** class, then pass the `$schedule`
+object and two cron strings (one for the Uptime Check and one for the SSL
+Certificate Check):
+
+```php
+<?php
+
 use Taecontrol\MoonGuard\Console\MoonGuardCommandsScheduler;
 //...
 
-protected function schedule(Schedule $schedule)
+protected function schedule(Schedule $schedule): void
 {
   MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
-    $schedule, 
-    '* * * * *', 
+    $schedule,
+    '* * * * *',
     '* * * * *'
   );
 }
 ```
+
+In case you want to setup individually each command  you can do it as following:
+
+### Scheduling CheckUptime Command
+
+Scheduling the Uptime Check can be done through the `CheckUptimeCommand` class
+and Laravel's command scheduler.
+
+Go to **`app/Console/Kernel.php`** and use the `CheckUptimeCommand` class and
+add schedule dthe command in the `schedule()` method:
+
+```php
+<?php
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Taecontrol\MoonGuard\Console\Commands\CheckUptimeCommand;
+
+class Kernel extends ConsoleKernel
+{
+    //...
+
+		/**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+				$schedule->command(CheckUptimeCommand::class)->everyMinute();
+    }
+}
+```
+
+With this, all your sites uptime status will be updated every minute. You can
+check more options from scheduling commands in the
+[Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
+
+## Scheduling CheckSslCertificate Command
+
+The CheckSslCertificateCommand can also be scheduled using Laravel's command scheduler.
+
+```php
+<?php
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
+
+class Kernel extends ConsoleKernel
+{
+    //...
+}
+```
+
+Next, you can specify when the command should run in the schedule method.
+
+```php
+<?php
+
+/**
+ * Define the application's command schedule.
+ *
+ * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+ * @return void
+ */
+protected function schedule(Schedule $schedule)
+{
+    $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
+}
+```
+
+In this case, we can set the **`CheckSslCertificateCommand`** to run every
+2 hours. For more scheduling options, please refer to the 
+[Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
