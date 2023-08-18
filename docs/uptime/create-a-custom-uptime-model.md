@@ -168,7 +168,7 @@ class UptimeCheck extends Model implements MoonGuardUptimeCheck
 | --- | --- | --- |
 | site() | Belongs To | Returns a BelongsTo relationship between the UptimeCheck model and the Site model. This method allows you to retrieve the site associated with the uptime check. |
 | saveSuccessfulCheck(Response $response) | void | Saves the result of a successful uptime check. This method sets the status of the uptime check to "UP", updates the last check date, and saves the request duration. |
-| saveFailedCheck(Response|Exception $response) | void | Saves the result of a failed uptime check. This method sets the status of the uptime check to "DOWN", increments the number of times the check has failed in a row, updates the last check date, saves the failure reason, and sets the request duration to null. |
+| saveFailedCheck(Response\|Exception $response) | void | Saves the result of a failed uptime check. This method sets the status of the uptime check to "DOWN", increments the number of times the check has failed in a row, updates the last check date, saves the failure reason, and sets the request duration to null. |
 | requestTookTooLong() | bool | Returns a boolean indicating whether the last request took longer than the maximum allowed duration for the site. |
 | wasFailing() | Attribute | Returns an Attribute instance that indicates whether the uptime check was failing. |
 | isEnabled() | Attribute | Returns an Attribute instance that indicates whether the uptime check is enabled. |

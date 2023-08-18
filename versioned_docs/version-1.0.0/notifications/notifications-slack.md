@@ -37,6 +37,21 @@ Laravel project with the SLACK_WEBHOOK_URL variable.
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/TTW2G=asdW3/B042W9dsd9L/D2D329QLMNsdi12
 ```
 
+Finally activate the Slack channel in the MoonGuard config file.
+
+```php
+<?php
+[
+  //...
+  'notifications' => [
+    'channels' => ['mail', 'slack'], //<-- add 'slack'
+    'slack' => [
+      'webhook_url' => env('SLACK_WEBHOOK_URL'),
+    ],
+  ],
+];
+```
+
 :::info Note
 If you're using a custom user model, it must implement the
 `routeNotificationForSlack():string` method.

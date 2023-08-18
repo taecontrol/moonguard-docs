@@ -138,7 +138,7 @@ class SslCertificateCheck extends Model implements MoonGuardSslCertificateCheck
 
 | Function Name | Return Type | Description |
 | --- | --- | --- |
-| site | BelongsTo | Returns a BelongsTo relationship between the SslCertificateCheck model and the Site model. This method allows you to retrieve the site associated with the SSL certificate check. |
+| site() | BelongsTo | Returns a BelongsTo relationship between the SslCertificateCheck model and the Site model. This method allows you to retrieve the site associated with the SSL certificate check. |
 | saveCertificate(SslCertificate $certificate, Url $url) | void | Saves the result of a successful SSL certificate check. This method sets the status of the SSL certificate check to "VALID" if the certificate is valid, or "INVALID" if the certificate is invalid. It also saves the expiration date and issuer of the certificate. |
 | saveError(Exception $exception) | void | Saves the result of a failed SSL certificate check. This method sets the status of the SSL certificate check to "INVALID", and saves the failure reason. |
 | certificateIsValid() | bool | Returns a boolean indicating whether the SSL certificate is valid. |

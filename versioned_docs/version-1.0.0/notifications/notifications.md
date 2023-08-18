@@ -15,14 +15,16 @@ MoonGuard ships with some notifications for multiple use cases and scenarios, th
 - Uptime Check Recovered.
 - New Exception Log Group.
 
-MoonGuard uses two channels to send notifications by default: email and slack.
+MoonGuard use an email channel to send notifications by default. You can also add a
+[slack channel](./notification-slack) in the notification
 This can be modified by your own preference in the configuration file:
 
-```bash
+```php
+<?php
 [
   //...
   'notifications' => [
-    'channels' => ['mail', 'slack'],
+    'channels' => ['mail'], //<-- add 'slack'
     'slack' => [
       'webhook_url' => env('SLACK_WEBHOOK_URL'),
     ],

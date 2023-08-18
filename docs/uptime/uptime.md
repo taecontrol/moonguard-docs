@@ -1,11 +1,11 @@
 ---
-id: uptime-check-model
-slug: /uptime-check-model
+id: uptime
+slug: /uptime
 sidebar_position: 1
 ---
 # Uptime
 
-The uptime check feature allows you to determine whether their site is currently
+The uptime check feature allows you to determine whether a site is currently
 online or not. If the site goes down, notifications can be sent via email or
 Slack. For more details on notifications, please refer to the
 [notification section](../notifications/notifications.md).

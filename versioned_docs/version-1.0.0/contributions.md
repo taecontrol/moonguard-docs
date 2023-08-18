@@ -10,6 +10,7 @@ At this time we are currently accepting the current forms of contributions:
 
 * Bug reports.
 * Pull requests for bug fixes.
+* Feature suggestions.
 
 ## Bug Reports
 
@@ -27,16 +28,17 @@ your computer. Then create a laravel project and add in the `composer.json` the
 following:
 
 ```php
+<?php
 {
 
-    //Another keys....
+  //Another keys....
 
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../<MoonGuard_path>/moonguard"
-        }
-    ]
+  "repositories": [
+    {
+        "type": "path",
+        "url": "../<MoonGuard_path>/moonguard"
+    }
+  ]
 }
 ```
 

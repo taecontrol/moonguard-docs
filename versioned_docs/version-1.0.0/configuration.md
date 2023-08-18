@@ -6,7 +6,7 @@ sidebar_position: 3
 
 # Configuration
 
-If there is a need to modify the default configuration of MoonGuard, the
+If you need to modify the default configuration of MoonGuard, the
 configuration file can be published using:
 
 ```bash
