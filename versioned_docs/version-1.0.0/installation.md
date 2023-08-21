@@ -26,11 +26,6 @@ plugin via composer
 composer require taecontrol/moonguard
 ```
 
-:::caution Heads Up
-Since MoonGuard is still in beta, set the `minimum-stability` in your 
-`composer.json` to `dev`
-:::
-
 Publish the MoonGuard assets files and migrations file in your project.
 
 ```php
