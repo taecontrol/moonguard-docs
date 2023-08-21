@@ -23,7 +23,7 @@ Once you setup your Laravel project with filament, you can install MoonGuard
 plugin via composer
 
 ```bash
-composer require taecontrol/moonguard "^1.0.0@beta" -W
+composer require taecontrol/moonguard
 ```
 
 :::caution Heads Up
