@@ -86,7 +86,7 @@ capabilities we recommend you the following steps:
 use Illuminate\Database\Eloquent\Model;
 use Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog;
 
-class UptimeCheck extends Model implements MoonGuardExceptionLog
+class ExceptionLog extends Model implements MoonGuardExceptionLog
 {
   // Contract implementation
 }
