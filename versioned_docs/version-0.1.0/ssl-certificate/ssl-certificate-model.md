@@ -45,7 +45,7 @@ capabilities we recommend you the following steps:
 use Illuminate\Database\Eloquent\Model;
 use Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck;
 
-class UptimeCheck extends Model implements MoonGuardSslCertificateCheck
+class SslCertificateCheck extends Model implements MoonGuardSslCertificateCheck
 {
   //Contract implementation
 }

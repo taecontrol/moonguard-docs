@@ -86,6 +86,7 @@ protected function schedule(Schedule $schedule): void
   );
 }
 ```
+
 The MoonGuardCommandsScheduler is scheduled by running `php artisan schedule:run`.
 In case you want to setup individually each command  you can do it as following:
 
@@ -109,8 +110,7 @@ use Taecontrol\MoonGuard\Console\Commands\CheckUptimeCommand;
 class Kernel extends ConsoleKernel
 {
   //...
-
-  /**
+   /**
    * Define the application's command schedule.
    *
    * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
@@ -142,7 +142,7 @@ use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
 
 class Kernel extends ConsoleKernel
 {
-  //...
+    //...
 }
 ```
 
@@ -159,7 +159,7 @@ Next, you can specify when the command should run in the schedule method.
  */
 protected function schedule(Schedule $schedule)
 {
-  $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
+    $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
 }
 ```
 
