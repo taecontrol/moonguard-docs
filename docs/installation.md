@@ -62,6 +62,8 @@ Moonguard commands related to checks:
 
 - CheckUptimeCommand.
 - CheckSslCertificateCommand.
+- DeleteOldExceptionCommand.
+
 
 You can use this utility to set up MoonGuard task scheduling faster.
 
@@ -81,6 +83,7 @@ protected function schedule(Schedule $schedule): void
 {
   MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
     $schedule,
+    '* * * * *',
     '* * * * *',
     '* * * * *'
   );
@@ -123,13 +126,12 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-With this, all your sites uptime status will be updated every minute. You can
-check more options from scheduling commands in the
-[Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
+With this, all your sites uptime status will be updated every minute.
 
 ## Scheduling CheckSslCertificate Command
 
-The CheckSslCertificateCommand can also be scheduled using Laravel's command scheduler.
+The CheckSslCertificateCommand can also be scheduled using Laravel's command Scheduler
+and specify when the command should run in the schedule method.
 
 ```php
 <?php
@@ -142,27 +144,50 @@ use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
 
 class Kernel extends ConsoleKernel
 {
-    //...
-}
-```
-
-Next, you can specify when the command should run in the schedule method.
-
-```php
-<?php
-
-/**
- * Define the application's command schedule.
- *
- * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
- * @return void
- */
-protected function schedule(Schedule $schedule)
-{
-    $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
+    /**
+   * Define the application's command schedule.
+   *
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @return void
+   */
+  protected function schedule(Schedule $schedule)
+  {
+      $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
+  }
 }
 ```
 
 In this case, we can set the **`CheckSslCertificateCommand`** to run every
-2 hours. For more scheduling options, please refer to the 
-[Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
+2 hours.
+
+## Scheduling DeleteOldException Command
+
+The DeleteOldExceptionCommand deletes all exceptions that are older than 7 days
+by default. You can change its behavior in the configuration file. Like other
+commands, you can schedule it using Laravel's command Scheduler.
+
+```php
+<?php
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Taecontrol\MoonGuard\Console\Commands\DeleteOldExceptionCommand;
+
+class Kernel extends ConsoleKernel
+{
+    /**
+   * Define the application's command schedule.
+   *
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @return void
+   */
+  protected function schedule(Schedule $schedule)
+  {
+      $schedule->command(DeleteOldExceptionCommand::class)->daily();
+  }
+}
+```
+
+For more scheduling options, please refer to the [Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
