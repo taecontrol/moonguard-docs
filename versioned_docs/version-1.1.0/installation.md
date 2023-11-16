@@ -70,8 +70,8 @@ You can use this utility to set up MoonGuard task scheduling faster.
 In order to use this utility, define a new schedule in your app and inside the
 `schedule` method of **`app/Console/Kernel.php`** . Use the static function
 `scheduleMoonGuardCommands()` from the **MCS** class, then pass the `$schedule`
-object and two cron strings (one for the Uptime Check and one for the SSL
-Certificate Check):
+object and three cron strings (one for the Uptime Check, one for the SSL
+Certificate Check and one for delete old Exceptions that is optional):
 
 ```php
 <?php
@@ -85,7 +85,7 @@ protected function schedule(Schedule $schedule): void
     $schedule,
     '* * * * *',
     '* * * * *',
-    '* * * * *'
+    '* * * * *' //<-- optional
   );
 }
 ```
