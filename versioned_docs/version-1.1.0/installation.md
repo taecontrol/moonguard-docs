@@ -83,8 +83,8 @@ protected function schedule(Schedule $schedule): void
 {
   MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
     $schedule,
-    '* * * * *',
-    '* * * * *', //<-- XXX XXX Cron
+    '* * * * *', // <-- Uptime Check Cron
+    '* * * * *', //<-- SSL Certificate Cron
     '* * * * *' //<-- [Optional] Delete Exceptions Cron
   );
 }
