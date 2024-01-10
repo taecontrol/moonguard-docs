@@ -163,8 +163,7 @@ In this case, we can set the **`CheckSslCertificateCommand`** to run every
 ## Scheduling DeleteOldException Command
 
 The DeleteOldExceptionCommand deletes all exceptions that are older than 7 days
-by default. You can change its behavior in the configuration file. Like other
-commands, you can schedule it using Laravel's command Scheduler.
+by default. You can change its behavior in the configuration file.
 
 ```php
 <?php
