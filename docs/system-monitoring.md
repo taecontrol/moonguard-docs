@@ -50,6 +50,22 @@ You can also check your hardware health in the system monitoring sidebar
 
 ![system-monitoring](./system-monitoring/system-monitoring.png)
 
+## Notifications
+
+You can setup a monitoring limit notification for each site in MoonGuard, for use
+it, you can setting on the settings of the Site and add the limit that you want.
+
+
+![system-monitoring-limit](./system-monitoring/sytem-monitoring-limit.png)
+
+Once you setup your limit, you will get a notification via slack if the value pass
+the limit. Make shore you have setting up your notification via slack, you can see
+more about it in the [notification docs](./notifications/notifications-slack.md)
+
+
+
+
+
 ## Delete Hardware Data
 
 If you want to delete the hardware data you can use the `system-metric` command
