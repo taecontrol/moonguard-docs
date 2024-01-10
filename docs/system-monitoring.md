@@ -63,12 +63,29 @@ the limit. Make shore you have setting up your notification via slack, you can s
 more about it in the [notification docs](./notifications/notifications-slack.md)
 
 
+## Delete System monitoring record
 
+MoonGuard by default will delete the system monitoring record older than 5 days,
+if you want disable or change this feature go to the `config/moonguard.php` file
+and change as you want.
 
+```php
+<?php
 
-## Delete Hardware Data
+'system_monitoring_records_deletion' => [
+  /*
+   * enables or disables the deletion of monitoring logs.
+   */
+  'enabled' => true,
 
-If you want to delete the hardware data you can use the `system-metric` command
+  /*
+   * The age in days of the system monitoring records to delete.
+   */
+  'delete_system_monitoring_records_older_than_days' => 5,
+],
+```
+
+If you want to delete the record data manually, you can use the `system-metric` command
 in your MoonGuard app:
 
 ```bash
