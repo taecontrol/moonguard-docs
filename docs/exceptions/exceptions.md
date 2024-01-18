@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Exceptions
 
-MoonGuard allows users to review their site's exceptions using Larvis 1.0.0 ,
+MoonGuard allows users to review their site's exceptions using Larvis ,
 a package designed to handle exceptions and send them to the MoonGuard plugin.
 Before checking your site's exceptions, please ensure that Larvis has been
 installed (refer to the
@@ -24,17 +24,15 @@ KRATER_DEBUG=false
 After installing Larvis, the number of exceptions for a site can be viewed in
 the status card on the dashboard.
 
-![exceptions-dashboard](./img/exceptions-dasboard.png)
+![exceptions-dashboard](./img/exceptions-dashboard.png)
 
-Additionally, all exceptions can be found on the Exception view:
+Additionally, all exceptions can be found on the Exception view. On the Exception
+view, users can view all exceptions in a group, including the first and last
+reported times. To view the details of a specific exception, simply click on the
+corresponding row.
 
 ![exceptions-list](./img/exceptions-list.png)
 
-On the Exception view, users can view all exceptions in a group, including the
-first and last reported times. To view the details of a specific exception,
-simply click on the corresponding row.
-
-![exceptions-app-list](./img/exceptions-app-list.png)
 
 On this view, users can resolve, ignore, review, or mark exceptions as unresolved.
 

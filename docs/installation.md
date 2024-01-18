@@ -28,7 +28,12 @@ composer require taecontrol/moonguard
 
 Publish the MoonGuard assets files and migrations file in your project.
 
-```php
+:::caution Heads Up
+If you have already published Moonguard Migrations before its release, please
+refer to the migration [documentation](./migrations) for any updates.
+:::
+
+```bash
 php artisan vendor:publish --tag="moonguard-assets"
 
 php artisan vendor:publish --tag="moonguard-migrations"

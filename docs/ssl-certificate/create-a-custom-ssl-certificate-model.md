@@ -33,17 +33,23 @@ with [model reference](./create-a-custom-ssl-certificate-model#model-reference).
 
   ```php
   <?php
+  [
+    'ssl_certificate_check' => [
+      /*
+       * Enable or disable ssl certificate checks globally.
+       */
+      'enabled' => true,
 
-  'ssl_certificate_check' => [
-    /*
-     * Enable or disable ssl certificate checks globally.
-     */
-    'enabled' => true,
+      /*
+       * The ssl certificate check model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class, -> // replace model
 
-    /*
-     * The ssl certificate check model to use.
-     */
-    'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
+      /*
+       * The number of days before a certificate expires to send a notification.
+       */
+      'notify_expiring_soon_if_certificate_expires_within_days' => 7,
+    ]
   ]
   ```
 

@@ -30,8 +30,13 @@ MoonGuard requires the next parameters to be filled in order to create a new sit
 - **Enabled checks**:
     - **Uptime check**: service to check the site uptime.
     - **SSL Certificate check**: service to check the site SSL certificate status.
+- **Monitoring Limit**
+    - **Alert Notification Enabled**: allow system monitoring notifications.
+    - **CPU load is above**: Send a notification if the value exceeds a certain threshold.
+    - **Memory usage is above**: Send a notification if the value exceeds a certain threshold.
+    - **Disk usage is above**: Send a notification if the value exceeds a certain threshold.
 - **API Token**: unique token to link the site using Larvis, for catching exceptions
-(make sure that [Larvis 1.0.0](https://github.com/taecontrol/larvis/tree/1.x) is
+(make sure that [Larvis](https://github.com/taecontrol/larvis/tree/1.x) is
 configured to use the token).
 - **Down for maintenance**: bypass all site checks if the site is in maintenance.
 

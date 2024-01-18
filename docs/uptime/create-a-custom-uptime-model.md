@@ -36,9 +36,24 @@ the [model reference](./create-a-custom-uptime-model#model-Reference).
   [
     'uptime_check' => [
       /*
+       * Enable or disable uptime checks globally.
+       */
+      'enabled' => true,
+
+      /*
        * The uptime check model to use.
        */
       'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model
+
+      /*
+       * The number of consecutive failures before a notification should be sent.
+       */
+      'notify_failed_check_after_consecutive_failures' => 1,
+
+      /*
+       * How often a notification is resent after the uptime check fails
+      */
+      'resend_uptime_check_failed_notification_every_minutes' => 5,
     ],
   ]
   ```

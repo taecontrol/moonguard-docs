@@ -22,10 +22,16 @@ This can be modified by your own preference in the configuration file:
 ```php
 <?php
 [
-  //...
   'notifications' => [
-    'channels' => ['mail'], //<-- add 'slack'
+    /*
+     * The notification channels that are used by default.
+     */
+    'channels' => ['mail'], <- //add slack (optional)
+
     'slack' => [
+      /*
+       * The Slack webhook url setup.
+       */
       'webhook_url' => env('SLACK_WEBHOOK_URL'),
     ],
   ],

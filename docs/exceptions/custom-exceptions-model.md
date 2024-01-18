@@ -35,19 +35,28 @@ with the [model reference](./create-a-custom-exception-model#model-reference).
   <?php
   [
     'exceptions' => [
-      //...
+      /*
+       * Enable or disable exception logging globally.
+       */
+      'enabled' => true,
+
+      /*
+       * The number of minutes that should be waited before sending a notification about exception log group updates.
+       */
+      'notify_time_between_group_updates_in_minutes' => 15,
+
       'exception_log' => [
         /*
          * The exception log model to use.
          */
-        'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class,
+        'model' => \Taecontrol\MoonGuard\Models\ExceptionLog::class, -> //replace model
       ],
 
       'exception_log_group' => [
         /*
          * The exception log group model to use.
          */
-        'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class,
+        'model' => \Taecontrol\MoonGuard\Models\ExceptionLogGroup::class, -> //replace model
       ],
     ]
   ]

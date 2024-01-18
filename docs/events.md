@@ -1,14 +1,14 @@
 ---
 id: events
 slug: /events
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # Events
 
 MoonGuard uses and registers multiple events to execute actions through
 listeners. We have created a series of events related to Uptime checks, SSL
-Certificate checks, and Exceptions:
+Certificate checks, Exceptions, and system monitoring:
 
 ## UptimeCheckFailedEvent
 
@@ -55,7 +55,7 @@ utilizes a listener (**ExceptionLogGroupCreatedListener)** to listen for this
 event and sends out a notification (**ExceptionLogGroupNotification)** to all
 users, notifying them of the creation.
 
-### ExceptionLogGroupUpdatedEvent
+## ExceptionLogGroupUpdatedEvent
 
 This event is triggered when an existing exception log group is modified. This
 is useful when multiple repeated exceptions are received in a single batch.
@@ -63,19 +63,34 @@ MoonGuard utilizes a listener (**ExceptionLogGroupUpdatedListener)** to listen
 for this event and sends out a notification (**ExceptionLogGroupNotification)**
 to all users, notifying them of the update.
 
+## SystemMetricAlertEvent
+
+This event is triggered when the CPU load, memory, or disk space exceeds the
+limit set in the site configuration, causing an alert. MoonGuard utilizes a listener
+(**SystemMetricAlertListener**) to liste for this event and sends out notification
+(**SystemMetricNotification**) to all users, notifying them of the update.
+
 If you need to modify the behavior of the Listener, they can be replaced by your
 own listeners from the MoonGuard configuration file:
 
-```bash
+```php
+
+<?php
+
 [
-    //...
-    'events' => [
-        'listen' => [
-            \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\MyListener::class,
-            ],
-            //...
+  //...
+  'events' => [
+    /*
+     * The events that can be listened for.
+     * You can add your own listeners here.
+     */
+    'listen' => [
+        \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
+            \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
         ],
-    ]
+    ],
+
+    //...
+  ],
 ];
 ```

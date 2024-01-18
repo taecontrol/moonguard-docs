@@ -42,10 +42,16 @@ Finally activate the Slack channel in the MoonGuard config file.
 ```php
 <?php
 [
-  //...
   'notifications' => [
-    'channels' => ['mail', 'slack'], //<-- add 'slack'
+    /*
+     * The notification channels that are used by default.
+     */
+    'channels' => ['mail'], <- //add slack (optional)
+
     'slack' => [
+      /*
+       * The Slack webhook url setup.
+       */
       'webhook_url' => env('SLACK_WEBHOOK_URL'),
     ],
   ],

@@ -1,21 +1,21 @@
 ---
 id: System monitoring
 slug: /system-monitoring
-sidebar_position: 9
+sidebar_position: 10
 ---
 
-MoonGuard, provides with a hardware health Monitoring system that allow to track
-hardware variables of your serve, it works with the `CheckHardwareHealthCommand`
+MoonGuard provides a hardware health monitoring system that allows you to track
+hardware variables of your server. It works with the `CheckHardwareHealthCommand`
 from [Larvis](https://github.com/taecontrol/larvis/tree/1.alpha?tab=readme-ov-file#commands)
-to monitor the CPU Load, Memory and total disk usage.
+to monitor the CPU load, memory, and total disk usage.
 
 ## Scheduling CheckHardwareHealth command
 
-You can use `CheckHardwareHealthCommand` periodically by scheduling in the Laravel
-project that use Larvis. It send the CPU average load of 5 minutes before,
-the memory usage and the total disk used of the server where is installed your
-application. Like other commands, you can schedule it using Laravel's command
-Scheduler.
+You can use the `CheckHardwareHealthCommand` periodically by scheduling it in the
+Laravel project that uses Larvis. It sends the CPU average load of the last 5
+minutes, memory usage, and total disk space used by the server where your
+application is installed. Like other commands, you can schedule it using
+Laravel's command scheduler.
 
 ```php
 <?php
@@ -41,33 +41,35 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-Once you have setup your Larvis project you can check in your MoonGuard Dashboard
-the track variables.
+After setting up your Larvis project, you can check the tracked variables in your
+MoonGuard Dashboard.
 
 ![dashboard-hardware](./system-monitoring/dashboard-hardware.png)
 
-You can also check your hardware health in the system monitoring sidebar
+In the system monitoring section, you will see a historical data graph of the
+hardware usage for each application that uses Larvis. You can set it up to display
+data from the last hour, day, or week.
 
 ![system-monitoring](./system-monitoring/system-monitoring.png)
+
+![system-monitoring](./system-monitoring/system-monitoring2.png)
 
 ## Notifications
 
 You can setup a monitoring limit notification for each site in MoonGuard, for use
 it, you can setting on the settings of the Site and add the limit that you want.
 
-
 ![system-monitoring-limit](./system-monitoring/sytem-monitoring-limit.png)
 
-Once you setup your limit, you will get a notification via slack if the value pass
-the limit. Make shore you have setting up your notification via slack, you can see
-more about it in the [notification docs](./notifications/notifications-slack.md)
-
+After setting up your limit, you will receive a notification via Slack if the
+value exceeds the limit. Make sure you have set up your Slack notification; you
+can learn more about it in the [notification docs](./notifications/notifications-slack.md)
 
 ## Delete System monitoring record
 
-MoonGuard by default will delete the system monitoring record older than 5 days,
-if you want disable or change this feature go to the `config/moonguard.php` file
-and change as you want.
+By default, MoonGuard will delete system monitoring records that are older than
+5 days. If you want to disable or change this feature, go to the `config/moonguard.php`
+file and make the desired changes.
 
 ```php
 <?php
