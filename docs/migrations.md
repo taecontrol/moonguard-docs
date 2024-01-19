@@ -4,83 +4,18 @@ slug: /migrations
 sidebar_position: 3
 ---
 
-If you have previously obtained the MoonGuard migrations, you will need to
-incorporate the following updates:
+# Migrations
 
-In the `create_moonguard_tables` migration, add the `system_metrics` table.
+Here are the latest migrations and tables used in MoonGuard. You can always
+publish them using:
 
-```php
-
-<?php
-
-class CreateMoonGuardTables extends Migration {
-    public function up()
-    {
-
-      //...
-
-      Schema::create('system_metrics', function (Blueprint $table) {
-        $table->id();
-        $table->integer('cpu_usage');
-        $table->integer('memory_usage');
-        $table->json('disk_usage');
-        $table->foreignIdFor(SiteRepository::resolveModelClass())
-          ->constrained()
-          ->cascadeOnDelete()
-          ->cascadeOnUpdate();
-
-        $table->timestamps();
-      });
-    }
-
-    public function down()
-    {
-      //...
-
-      Schema::table('system_metrics', function (Blueprint $table) {
-        $table->dropForeignIdFor(SiteRepository::resolveModelClass());
-      });
-
-      Schema::dropIfExists('system_metrics');
-    }
-}
+```bash
+php artisan vendor:publish --tag="moonguard-migrations"
 ```
+In case you need a particular table you can make your own migration file and use
+our Schema instruction in your project.
 
-To ensure that MoonGuard migrations are not duplicated when republished, you
-need to add the `!Schema::hasTable('<table_name>')` condition to each table.
-This condition secures the migration process and prevents duplication.
-
-```php
-
-<?php
-
-class CreateMoonGuardTables extends Migration {
-    public function up()
-    {
-      if ( !Schema::hasTable('<table_name>') ) {
-        Schema::create('table_name', function (Blueprint $table) {
-          //...
-        }
-      }
-    }
-
-    public function down()
-    {
-      if ( !Schema::hasTable('<table_name>') ) {
-        Schema::table('<table_name>', function (Blueprint $table) {
-          //...
-        });
-      }
-    }
-}
-```
-
-After updating the `create_moonguard_tables` file, you can run the `vendor:publish`
-command again. This will not only update the existing migrations but also add a
-new migration called `add_sm_fields_on_site_table`. This migration is used in our
-new system monitoring feature.
-
-Here is a full script migration `create_moonguard_tables`.
+## create_moonguard_tables.php:
 
 ```php
 
@@ -260,6 +195,29 @@ class CreateMoonGuardTables extends Migration {
 };
 ```
 
+## add_system_monitoring_fields_on_sites_table.php:
+
+```php
+
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddSMFieldsOnSitesTable extends Migration
+{
+    public function up()
+    {
+        Schema::table('sites', function (Blueprint $table) {
+            $table->boolean('hardware_monitoring_notification_enabled')->default(false);
+            $table->integer('cpu_limit')->nullable();
+            $table->integer('ram_limit')->nullable();
+            $table->integer('disk_limit')->nullable();
+        });
+    }
+}
+```
 
 
 

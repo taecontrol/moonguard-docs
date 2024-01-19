@@ -6,7 +6,7 @@ sidebar_position: 1
 
 # Site
 
-A “**site**" refers to the representation of production apps, websites, or
+A **“site"** is the representation of production apps, websites, or
 platforms that you wish to monitor using MoonGuard. It serves as the central
 entity within MoonGuard, with all functionalities and components being associated
 with a specific site.

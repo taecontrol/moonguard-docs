@@ -68,7 +68,7 @@ Moonguard commands related to checks:
 - CheckUptimeCommand.
 - CheckSslCertificateCommand.
 - DeleteOldExceptionCommand.
-
+- DeleteSystemMetricCommand.
 
 You can use this utility to set up MoonGuard task scheduling faster.
 
@@ -90,7 +90,8 @@ protected function schedule(Schedule $schedule): void
     $schedule,
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
-    '* * * * *' //<-- [Optional] Delete Exceptions Cron
+    '* * * * *', //<-- [Optional] Delete Exceptions Cron
+    '* * * * *' //<-- Delete System metrics
   );
 }
 ```
@@ -190,6 +191,35 @@ class Kernel extends ConsoleKernel
   protected function schedule(Schedule $schedule)
   {
       $schedule->command(DeleteOldExceptionCommand::class)->daily();
+  }
+}
+```
+
+## Scheduling DeleteSystemMetricCommand
+
+The DeleteSystemMetricCommand deletes all the Systems Monitoring data older than
+7 days by default. You can change its behavior in the configuration file.
+
+```php
+<?php
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Taecontrol\MoonGuard\Console\Commands\DeleteSystemMetricCommand;
+
+class Kernel extends ConsoleKernel
+{
+    /**
+   * Define the application's command schedule.
+   *
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @return void
+   */
+  protected function schedule(Schedule $schedule)
+  {
+      $schedule->command(DeleteSystemMetricCommand::class)->daily();
   }
 }
 ```

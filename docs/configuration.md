@@ -6,15 +6,14 @@ sidebar_position: 4
 
 # Configuration
 
-If you need to modify the default configuration of MoonGuard, the
-configuration file can be published using:
+In case you need to customize the MoonGuard configuration, it can be published using:
 
 ```bash
 php artisan vendor:publish --tag="moonguard-config"
 ```
 
-The configuration file is on `config/moonguard.php` and can be customized to
-suit your needs, it is possible to modify **models**, **events**, **listeners**
+The configuration file is located at `config/moonguard.php` and can be modified to
+suit your needs, it's possible to modify **models**, **events**, **listeners**
 and **notifications**.
 
 ```bash

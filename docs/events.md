@@ -8,7 +8,7 @@ sidebar_position: 12
 
 MoonGuard uses and registers multiple events to execute actions through
 listeners. We have created a series of events related to Uptime checks, SSL
-Certificate checks, Exceptions, and system monitoring:
+Certificate checks, Exceptions, and System Monitoring:
 
 ## UptimeCheckFailedEvent
 
@@ -70,8 +70,8 @@ limit set in the site configuration, causing an alert. MoonGuard utilizes a list
 (**SystemMetricAlertListener**) to liste for this event and sends out notification
 (**SystemMetricNotification**) to all users, notifying them of the update.
 
-If you need to modify the behavior of the Listener, they can be replaced by your
-own listeners from the MoonGuard configuration file:
+In case you want to customize the behavior of this event listeners, they can be
+replaced by your own listeners in the MoonGuard configuration file:
 
 ```php
 
