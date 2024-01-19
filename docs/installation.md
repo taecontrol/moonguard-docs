@@ -91,7 +91,7 @@ protected function schedule(Schedule $schedule): void
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
     '* * * * *', //<-- [Optional] Delete Exceptions Cron
-    '* * * * *' //<-- Delete System metrics
+    '* * * * *' //<-- [Optional] Delete System metrics
   );
 }
 ```
