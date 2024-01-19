@@ -66,9 +66,9 @@ to all users, notifying them of the update.
 ## SystemMetricAlertEvent
 
 This event is triggered when the CPU load, memory, or disk space exceeds the
-limit set in the site configuration, causing an alert. MoonGuard utilizes a listener
-(**SystemMetricAlertListener**) to liste for this event and sends out notification
-(**SystemMetricNotification**) to all users, notifying them of the update.
+limit set in the site configuration, any threshold exceeded will trigger alert notifications. MoonGuard utilizes the listener
+(**SystemMetricAlertListener**) to listen for this event and sends out notification the
+(**SystemMetricNotification**) to all users.
 
 If you need to modify the behavior of the Listener, they can be replaced by your
 own listeners from the MoonGuard configuration file:
