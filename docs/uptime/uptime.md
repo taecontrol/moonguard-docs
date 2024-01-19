@@ -21,7 +21,7 @@ the Uptime check from monitoring its uptime.
 :::
 
 Afterwards, you view the uptime information in the Dashboard panel. If the site
-is up, the uptime check will fail and show a **UP**.
+is up, the uptime check will succeed and display a **UP** indicator.
 
 ![uptime-status](./img/uptime-status.png)
 
