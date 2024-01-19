@@ -28,8 +28,7 @@ the status card on the dashboard.
 
 Additionally, all exceptions can be found on the Exception view. On the Exception
 view, users can view all exceptions in a group, including the first and last
-reported times. To view the details of a specific exception, simply click on the
-corresponding row.
+reported times. To access and review the details of a specific exception, click on the corresponding exception row.
 
 ![exceptions-list](./img/exceptions-list.png)
 
