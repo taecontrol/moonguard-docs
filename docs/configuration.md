@@ -89,7 +89,7 @@ return [
         /*
          * The age in days of the system monitoring records to delete.
          */
-        'delete_system_monitoring_records_older_than_days' => 5,
+        'delete_system_monitoring_records_older_than_days' => 7,
     ],
     'exceptions' => [
         /*
