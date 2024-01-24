@@ -50,10 +50,11 @@ In the system monitoring section, you will see a historical data graph of the
 hardware usage for each application that uses Larvis. You can set it up to display
 data from the last hour, day, or week.
 
-![system-monitoring](./system-monitoring/system-monitoring.png)
+![system-monitoring1](./system-monitoring/system-monitoring1.png)
 
-![system-monitoring](./system-monitoring/system-monitoring2.png)
+![system-monitoring2](./system-monitoring/system-monitoring2.png)
 
+![system-monitoring3](./system-monitoring/system-monitoring3.png)
 ## Notifications
 
 You can setup a monitoring limit notification for each site in MoonGuard, for use
