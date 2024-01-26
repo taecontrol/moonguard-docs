@@ -8,7 +8,7 @@ sidebar_position: 12
 
 MoonGuard uses and registers multiple events to execute actions through
 listeners. We have created a series of events related to Uptime checks, SSL
-Certificate checks, Exceptions, and System Monitoring:
+Certificate checks, Exceptions, and Server Monitoring:
 
 ## UptimeCheckFailedEvent
 
@@ -63,12 +63,12 @@ MoonGuard utilizes a listener (**ExceptionLogGroupUpdatedListener)** to listen
 for this event and sends out a notification (**ExceptionLogGroupNotification)**
 to all users, notifying them of the update.
 
-## SystemMetricAlertEvent
+## ServerMetricAlertEvent
 
 This event is triggered when the CPU load, memory, or disk space exceeds the
 limit set in the site configuration, any threshold exceeded will trigger alert notifications. MoonGuard utilizes the listener
-(**SystemMetricAlertListener**) to listen for this event and sends out notification the
-(**SystemMetricNotification**) to all users.
+(**ServerMetricAlertListener**) to listen for this event and sends out notification the
+(**ServerMetricNotification**) to all users.
 
 In case you want to customize the behavior of this event listeners, they can be
 replaced by your own listeners in the MoonGuard configuration file:

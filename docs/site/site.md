@@ -16,7 +16,7 @@ To create a new site, you can locate the **New Site** button located at the top
 right corner of the interface. If it is your first time setting up MoonGuard,
 the site list will be empty as there are no existing records.
 
-![sites](./img/sites.png)
+![sites](./img/dashboard-site.png)
 
 You can also create a site from dashboard if there’s no site created.
 

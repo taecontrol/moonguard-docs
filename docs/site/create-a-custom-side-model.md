@@ -138,9 +138,9 @@ class Site extends Model implements MoonGuardSite
         return $this->hasMany(ExceptionLogGroupRepository::resolveModelClass());
     }
 
-    public function systemMetrics(): HasMany
+    public function serverMetrics(): HasMany
     {
-        return $this->hasMany(SystemMetric::class);
+        return $this->hasMany(ServerMetric::class);
     }
 
     public function newCollection(array $models = []): SiteCollection
@@ -194,4 +194,4 @@ class Site extends Model implements MoonGuardSite
 | exceptionLogs() | HasManyThrough | Returns a HasManyThrough relationship between the Site model and the ExceptionLog model through the ExceptionLogGroup model. This method allows you to retrieve the exception logs associated with the website. |
 | exceptionLogGroups() | HasMany | Returns a HasMany relationship between the Site model and the ExceptionLogGroup model. This method allows you to retrieve the exception log groups associated with the website. |
 | newCollection(array $models = []) | SiteCollection | Overrides the newCollection method to return a custom SiteCollection instance. This method allows you to customize the collection returned when querying the Site model. |
-| systemMetrics() | HasMany | Returns HasMany relationship between the Site model and SystemMetric model. |
+| serverMetrics() | HasMany | Returns HasMany relationship between the Site model and ServerMetric model. |

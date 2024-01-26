@@ -16,7 +16,7 @@ The configuration file is located at `config/moonguard.php` and can be modified 
 suit your needs, it's possible to modify **models**, **events**, **listeners**
 and **notifications**.
 
-```bash
+```php
 <?php
 
 return [
@@ -80,16 +80,16 @@ return [
          */
         'delete_exceptions_older_than_days' => 7,
     ],
-    'system_monitoring_records_deletion' => [
+    'server_monitoring_records_deletion' => [
         /*
          * enables or disables the deletion of monitoring logs.
          */
         'enabled' => true,
 
         /*
-         * The age in days of the system monitoring records to delete.
+         * The age in days of the server monitoring records to delete.
          */
-        'delete_system_monitoring_records_older_than_days' => 7,
+        'delete_server_monitoring_records_older_than_days' => 7,
     ],
     'exceptions' => [
         /*
@@ -154,8 +154,8 @@ return [
             \Taecontrol\MoonGuard\Events\ExceptionLogGroupUpdatedEvent::class => [
                 \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupUpdatedListener::class,
             ],
-            \Taecontrol\MoonGuard\Events\SystemMetricAlertEvent::class => [
-                \Taecontrol\MoonGuard\Listeners\SystemMetricAlertListener::class,
+            \Taecontrol\MoonGuard\Events\ServerMetricAlertEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ServerMetricAlertListener::class,
             ],
         ],
     ],
@@ -163,7 +163,7 @@ return [
         /*
          * The notification channels that are used by default.
          */
-        'channels' => ['slack'],
+        'channels' => ['mail'],
 
         'slack' => [
             /*

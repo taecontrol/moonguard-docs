@@ -1,10 +1,10 @@
 ---
-id: System monitoring
-slug: /system-monitoring
+id: Server Monitoring
+slug: /server-monitoring
 sidebar_position: 10
 ---
 
-MoonGuard provides a hardware health monitoring system that allows you to track
+MoonGuard provides a server monitoring system that allows you to track
 hardware variables of your server. It works with the `CheckHardwareHealthCommand`
 from [Larvis](https://github.com/taecontrol/larvis/tree/1.alpha?tab=readme-ov-file#commands)
 to monitor the CPU load, memory, and total disk usage.
@@ -44,38 +44,38 @@ class Kernel extends ConsoleKernel
 After setting up your Larvis project, you can check the tracked variables in your
 MoonGuard Dashboard.
 
-![dashboard-hardware](./system-monitoring/dashboard-hardware.png)
+![dashboard-hardware](./server-monitoring/dashboard-hardware.png)
 
 In the system monitoring section, you will see a historical data graph of the
 hardware usage for each application that uses Larvis. You can set it up to display
 data from the last hour, day, or week.
 
-![system-monitoring1](./system-monitoring/system-monitoring1.png)
+![server-monitoring1](./server-monitoring/server-monitoring1.png)
 
-![system-monitoring2](./system-monitoring/system-monitoring2.png)
+![server-monitoring2](./server-monitoring/server-monitoring2.png)
 
-![system-monitoring3](./system-monitoring/system-monitoring3.png)
+![server-monitoring3](./server-monitoring/server-monitoring3.png)
 ## Notifications
 
 You can setup a monitoring limit notification for each site in MoonGuard, for use
 it, you can setting on the settings of the Site and add the limit that you want.
 
-![system-monitoring-limit](./system-monitoring/sytem-monitoring-limit.png)
+![server-monitoring-limit](./server-monitoring/server-monitoring-limit.png)
 
 After setting up your limit, you will receive a notification via Slack if the
 value exceeds the limit. Make sure you have set up your Slack notification; you
 can learn more about it in the [notification docs](./notifications/notifications-slack.md)
 
-## Delete System monitoring record
+## Delete Server Monitoring record
 
-By default, MoonGuard will delete system monitoring records that are older than
-5 days. If you want to disable or change this feature, go to the `config/moonguard.php`
+By default, MoonGuard will delete Server Monitoring records that are older than
+7 days. If you want to disable or change this feature, go to the `config/moonguard.php`
 file and make the desired changes.
 
 ```php
 <?php
 
-'system_monitoring_records_deletion' => [
+'server_monitoring_records_deletion' => [
   /*
    * enables or disables the deletion of monitoring logs.
    */
@@ -88,10 +88,10 @@ file and make the desired changes.
 ],
 ```
 
-If you want to delete the record data manually, you can use the `system-metric` command
+If you want to delete the record data manually, you can use the `server-metric` command
 in your MoonGuard app:
 
 ```bash
-php artisan system-metric:delete
+php artisan server-metric:delete
 ```
 

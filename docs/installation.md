@@ -51,14 +51,14 @@ Go to `/moonguard` route to check the MoonGuard admin panel page:
 
 If you don’t have any user, you can create a filament user to access to MoonGuard
 admin panel:
-
+ 
 ```bash
 php artisan make:filament-user
 ```
 
  Login and you will land in the dashboard
 
-![dashboard](./installation/dashboard.png)
+![dasboard](./installation/dashboard.png)
 
 ## Moonguard Command Scheduler
 
@@ -68,7 +68,7 @@ Moonguard commands related to checks:
 - CheckUptimeCommand.
 - CheckSslCertificateCommand.
 - DeleteOldExceptionCommand.
-- DeleteSystemMetricCommand.
+- DeleteServerMetricCommand.
 
 You can use this utility to set up MoonGuard task scheduling faster.
 
@@ -91,7 +91,7 @@ protected function schedule(Schedule $schedule): void
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
     '* * * * *', //<-- [Optional] Delete Exceptions Cron
-    '* * * * *' //<-- [Optional] Delete System metrics
+    '* * * * *' //<-- [Optional] Delete Server Metrics
   );
 }
 ```
@@ -105,7 +105,7 @@ Scheduling the Uptime Check can be done through the `CheckUptimeCommand` class
 and Laravel's command scheduler.
 
 Go to **`app/Console/Kernel.php`** and use the `CheckUptimeCommand` class and
-add schedule dthe command in the `schedule()` method:
+add schedule the command in the `schedule()` method:
 
 ```php
 <?php
@@ -195,9 +195,9 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-## Scheduling DeleteSystemMetricCommand
+## Scheduling DeleteServerMetricCommand
 
-The DeleteSystemMetricCommand deletes all the Systems Monitoring data older than
+The ""DeleteServerMetricCommand deletes all the Systems Monitoring data older than
 7 days by default. You can change its behavior in the configuration file.
 
 ```php
@@ -207,7 +207,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteSystemMetricCommand;
+use Taecontrol\MoonGuard\Console\Commands\DeleteServerMetricCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -219,7 +219,7 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-      $schedule->command(DeleteSystemMetricCommand::class)->daily();
+      $schedule->command(DeleteServerMetricCommand::class)->daily();
   }
 }
 ```
