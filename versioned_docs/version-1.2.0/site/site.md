@@ -1,0 +1,59 @@
+---
+id: site
+slug: /site
+sidebar_position: 1
+---
+
+# Site
+
+A **“site"** is the representation of production apps, websites, or
+platforms that you wish to monitor using MoonGuard. It serves as the central
+entity within MoonGuard, with all functionalities and components being associated
+with a specific site.
+
+The **Sites** view allows you to create, edit, and delete sites within MoonGuard.
+To create a new site, you can locate the **New Site** button located at the top
+right corner of the interface. If it is your first time setting up MoonGuard,
+the site list will be empty as there are no existing records.
+
+![sites](./img/dashboard-site.png)
+
+You can also create a site from dashboard if there’s no site created.
+
+![site-dashboard-create](./img/site-dashboard-create.png)
+
+MoonGuard requires the next parameters to be filled in order to create a new site:
+
+- **Url**: web address of the application.
+- **Name**: name to display.
+- **Max. request duration**: maximum time for request in ms for **Uptime Check**.
+- **Enabled checks**:
+    - **Uptime check**: service to check the site uptime.
+    - **SSL Certificate check**: service to check the site SSL certificate status.
+- **Monitoring Limit**
+    - **Alert Notification Enabled**: allow system monitoring notifications.
+    - **CPU load is above**: Send a notification if the value exceeds a certain threshold.
+    - **Memory usage is above**: Send a notification if the value exceeds a certain threshold.
+    - **Disk usage is above**: Send a notification if the value exceeds a certain threshold.
+- **API Token**: unique token to link the site using Larvis, for catching exceptions
+(make sure that [Larvis](https://github.com/taecontrol/larvis/tree/1.x) is
+configured to use the token).
+- **Down for maintenance**: bypass all site checks if the site is in maintenance.
+
+![site-create](./img/site-create.png)
+
+After creating multiple sites, they will be displayed in the list on the main
+**Sites** view. Clicking on a site will open the edit view, where you can make
+changes to the site. Additionally, you have the option to delete the site from
+the edit view.
+
+![site-list](./img/sites-list.png)
+
+In the dashboard, you can also also see the general status for your sites.
+
+![site-status](./img/site-status.png)
+
+:::caution Heads Up
+If you **delete** a site any data related to the site will be deleted as well.
+:::
+
