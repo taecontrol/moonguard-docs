@@ -4,7 +4,7 @@ slug: /server-monitoring
 sidebar_position: 10
 ---
 
-MoonGuard provides a server monitoring system that allows you to track
+MoonGuard provides a server monitoring feature that allows you to track
 hardware variables of your server. It works with the `CheckHardwareHealthCommand`
 from [Larvis](https://github.com/taecontrol/larvis/tree/1.alpha?tab=readme-ov-file#commands)
 to monitor the CPU load, memory, and total disk usage.
@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-After setting up your Larvis project, you can check the tracked variables in your
+After setting up your Laravel site with Larvis, you can check the tracked variables in your
 MoonGuard Dashboard.
 
 ![dashboard-hardware](./server-monitoring/dashboard-hardware.png)
@@ -55,16 +55,18 @@ data from the last hour, day, or week.
 ![server-monitoring2](./server-monitoring/server-monitoring2.png)
 
 ![server-monitoring3](./server-monitoring/server-monitoring3.png)
+
 ## Notifications
 
-You can setup a monitoring limit notification for each site in MoonGuard, for use
-it, you can setting on the settings of the Site and add the limit that you want.
+In MoonGuard, we can set optional percentage limits for server metric
+indicators' usage and consumption.
+
 
 ![server-monitoring-limit](./server-monitoring/server-monitoring-limit.png)
 
-After setting up your limit, you will receive a notification via Slack if the
-value exceeds the limit. Make sure you have set up your Slack notification; you
-can learn more about it in the [notification docs](./notifications/notifications-slack.md)
+If any metric indicator exceeds the limit, it can send a notification via Slack.
+Make sure you have set up your Slack notification; you can learn more about it in
+the [notification docs](./notifications/notifications-slack.md)
 
 ## Delete Server Monitoring record
 

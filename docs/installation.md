@@ -51,7 +51,7 @@ Go to `/moonguard` route to check the MoonGuard admin panel page:
 
 If you don’t have any user, you can create a filament user to access to MoonGuard
 admin panel:
- 
+
 ```bash
 php artisan make:filament-user
 ```
@@ -90,138 +90,14 @@ protected function schedule(Schedule $schedule): void
     $schedule,
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
-    '* * * * *', //<-- [Optional] Delete Exceptions Cron
-    '* * * * *' //<-- [Optional] Delete Server Metrics
+    '0 0 * * *', //<-- [Optional] Delete Exceptions Cron
+    '0 0 * * *' //<-- [Optional] Delete Server Metrics
   );
 }
 ```
 
 The MoonGuardCommandsScheduler is scheduled by running `php artisan schedule:run`.
-In case you want to setup individually each command  you can do it as following:
 
-## Scheduling CheckUptime Command
+It is not mandatory to use the `MoonGuardCommandsScheduler`. If you wish to
+program the commands individually, please review the [commands section](./commands.md).
 
-Scheduling the Uptime Check can be done through the `CheckUptimeCommand` class
-and Laravel's command scheduler.
-
-Go to **`app/Console/Kernel.php`** and use the `CheckUptimeCommand` class and
-add schedule the command in the `schedule()` method:
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\CheckUptimeCommand;
-
-class Kernel extends ConsoleKernel
-{
-  //...
-   /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-    $schedule->command(CheckUptimeCommand::class)->everyMinute();
-  }
-}
-```
-
-With this, all your sites uptime status will be updated every minute.
-
-## Scheduling CheckSslCertificate Command
-
-The CheckSslCertificateCommand can also be scheduled using Laravel's command Scheduler
-and specify when the command should run in the schedule method.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-      $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
-  }
-}
-```
-
-In this case, we can set the **`CheckSslCertificateCommand`** to run every
-2 hours.
-
-## Scheduling DeleteOldException Command
-
-The DeleteOldExceptionCommand deletes all exceptions that are older than 7 days
-by default. You can change its behavior in the configuration file.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteOldExceptionCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-      $schedule->command(DeleteOldExceptionCommand::class)->daily();
-  }
-}
-```
-
-## Scheduling DeleteServerMetricCommand
-
-The ""DeleteServerMetricCommand deletes all the Systems Monitoring data older than
-7 days by default. You can change its behavior in the configuration file.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteServerMetricCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-      $schedule->command(DeleteServerMetricCommand::class)->daily();
-  }
-}
-```
-
-For more scheduling options, please refer to the [Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).
