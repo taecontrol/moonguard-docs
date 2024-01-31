@@ -82,7 +82,7 @@ class Site extends Model implements MoonGuardSite
         'cpu_limit',
         'ram_limit',
         'disk_limit',
-        'hardware_monitoring_notification_enabled',
+        'server_monitoring_notification_enabled',
     ];
 
     protected $casts = [
@@ -90,7 +90,7 @@ class Site extends Model implements MoonGuardSite
         'down_for_maintenance_at' => 'immutable_datetime',
         'uptime_check_enabled' => 'boolean',
         'ssl_certificate_check_enabled' => 'boolean',
-        'hardware_monitoring_notification_enabled' => 'boolean',
+        'server_monitoring_notification_enabled' => 'boolean',
     ];
 
     public function scopeWhereUptimeCheckEnabled(Builder $query): Builder
@@ -169,7 +169,7 @@ class Site extends Model implements MoonGuardSite
 | cpu_limit | The maximum CPU load average value that can be tolerated before an alert is sent. |
 | ram_limit | The maximum Memory value that can be tolerated before an alert is sent. |
 | disk_limit | The maximum disk space available that can be tolerated before an alert is sent. |
-| hardware_monitoring_notification_enabled | A boolean value that allow send hardware monitoring notifications. |
+| server_monitoring_notification_enabled | A boolean value that allow send server monitoring notifications. |
 
 ### Casts
 
@@ -179,7 +179,7 @@ class Site extends Model implements MoonGuardSite
 | down_for_maintenance_at | immutable_datetime | The date and time when the website is down for maintenance, casted to an immutable datetime object. |
 | uptime_check_enabled | boolean | The flag indicating whether uptime checks are enabled, casted to a boolean. |
 | ssl_certificate_check_enabled | boolean | The flag indicating whether SSL certificate checks are enabled, casted to a boolean. |
-| hardware_monitoring_notification_enabled | boolean | The flag that enable hardware monitoring notifications. |
+| server_monitoring_notification_enabled | boolean | The flag that enable server monitoring notifications. |
 
 ### Methods
 

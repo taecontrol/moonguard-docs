@@ -79,18 +79,38 @@ replaced by your own listeners in the MoonGuard configuration file:
 
 [
   //...
-  'events' => [
-    /*
-     * The events that can be listened for.
-     * You can add your own listeners here.
-     */
-    'listen' => [
-        \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
-            \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
+    'events' => [
+        /*
+         * The events that can be listened for.
+         * You can add your own listeners here.
+         */
+        'listen' => [
+            \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\UptimeCheckFailedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\UptimeCheckFailedListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\RequestTookLongerThanMaxDurationEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\RequestTookLongerThanMaxDurationListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\SslCertificateExpiresSoonEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\SslCertificateExpiresSoonListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\SslCertificateCheckFailedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\SslCertificateCheckFailedListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\ExceptionLogGroupCreatedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupCreatedListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\ExceptionLogGroupUpdatedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupUpdatedListener::class,
+            ],
+            \Taecontrol\MoonGuard\Events\ServerMetricAlertEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ServerMetricAlertListener::class,
+            ],
         ],
     ],
-
     //...
-  ],
 ];
 ```

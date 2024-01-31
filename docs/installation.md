@@ -67,8 +67,8 @@ Moonguard commands related to checks:
 
 - CheckUptimeCommand.
 - CheckSslCertificateCommand.
-- DeleteOldExceptionCommand.
-- DeleteServerMetricCommand.
+- PruneExceptionCommand.
+- PruneServerMetricCommand.
 
 You can use this utility to set up MoonGuard task scheduling faster.
 
@@ -91,8 +91,8 @@ protected function schedule(Schedule $schedule): void
     $schedule,
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
-    '0 0 * * *', //<-- [Optional] Delete Exceptions Cron
-    '0 0 * * *' //<-- [Optional] Delete Server Metrics
+    '0 0 * * *', //<-- [Optional] Prune Exceptions Cron
+    '0 0 * * *' //<-- [Optional] Prune Server Metrics
   );
 }
 ```

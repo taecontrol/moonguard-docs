@@ -77,16 +77,16 @@ file and make the desired changes.
 ```php
 <?php
 
-'server_monitoring_records_deletion' => [
-  /*
-   * enables or disables the deletion of monitoring logs.
-   */
-  'enabled' => true,
+'prune_server_monitoring' => [
+    /*
+     * Enables or disables pruning server monitoring data.
+     */
+    'enabled' => true,
 
-  /*
-   * The age in days of the system monitoring records to delete.
-   */
-  'delete_system_monitoring_records_older_than_days' => 7,
+    /*
+     * Deletes server monitoring logs that are older than 7 days..
+     */
+    'prune_server_monitoring_records_older_than_days' => 7,
 ],
 ```
 

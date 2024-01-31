@@ -76,9 +76,9 @@ class Kernel extends ConsoleKernel
 In this case, we can set the `CheckSslCertificateCommand` to run every
 2 hours.
 
-## Scheduling DeleteOldException Command
+## Scheduling PruneException Command
 
-The `DeleteOldExceptionCommand` deletes all exceptions that are older than 7 days
+The `PruneExceptionCommand` deletes all exceptions that are older than 7 days
 by default. You can change its behavior in the configuration file.
 
 ```php
@@ -88,7 +88,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteOldExceptionCommand;
+use Taecontrol\MoonGuard\Console\Commands\PruneExceptionCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -100,14 +100,14 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-      $schedule->command(DeleteOldExceptionCommand::class)->daily();
+      $schedule->command(PruneExceptionCommand::class)->daily();
   }
 }
 ```
 
-## Scheduling DeleteServerMetricCommand
+## Scheduling PruneServerMetric Command
 
-The `DeleteServerMetricCommand` deletes all the Systems Monitoring data older than
+The `PruneServerMetricCommand` deletes all the Systems Monitoring data older than
 7 days by default. You can change its behavior in the configuration file.
 
 ```php
@@ -117,7 +117,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteServerMetricCommand;
+use Taecontrol\MoonGuard\Console\Commands\PruneServerMetricCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -129,7 +129,7 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-      $schedule->command(DeleteServerMetricCommand::class)->daily();
+      $schedule->command(PruneServerMetricCommand::class)->daily();
   }
 }
 ```
