@@ -7,7 +7,7 @@ sidebar_position: 1
 # Creating a custom Site model
 
 If you want to add new features or improve the original MoonGuard Site model,
-we allow you to create a custom Site Model for your project doing the following steps.
+we allow you to create a custom `site` Model for your project doing the following steps.
 
 1. Create a new `Site` class that extends from `Illuminate\Database\Eloquent\Model` 
 and implements the `Taecontrol\MoonGuard\Contracts\MoonGuardSite` contract.

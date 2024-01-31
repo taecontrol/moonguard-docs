@@ -11,7 +11,7 @@ a package designed to handle exceptions and send them to the MoonGuard plugin.
 Before checking your site's exceptions, please ensure that Larvis has been
 installed (refer to the
 [Larvis documentation](https://github.com/taecontrol/larvis/tree/1.x)) and that
-your **API Token** has been added to the .env file of your site project.
+your **API Token** has been added to the `.env` file of your site project.
 
 
 

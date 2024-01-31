@@ -6,11 +6,11 @@ sidebar_position: 2
 
 # Creating a custom Exception Model
 
-If you want to add new features or improve the original MoonGuard ExceptionLog
+If you want to add new features or improve the original MoonGuard `ExceptionLog`
 model, we allow you to create custom models of these for your project doing the
 following steps.
 
-1. Create a new **ExceptionLog** class that extends from 
+1. Create a new `ExceptionLog` class that extends from 
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLog` interface.
 
@@ -29,7 +29,7 @@ following steps.
 2. Implement all the properties and methods required, you can guide yourself
 with the [model reference](./create-a-custom-exception-model#model-reference).
 
-3. Replace the new ExceptionLog model class in the configuration file.
+3. Replace the new `ExceptionLog` model class in the configuration file.
 
   ```php
   <?php
@@ -62,8 +62,8 @@ with the [model reference](./create-a-custom-exception-model#model-reference).
   ]
   ```
 
-In case you want to re implement the ExceptionLogGroup model you can use the
-guide of ExceptionLog model and implement
+In case you want to re implement the `ExceptionLogGroup` model you can use the
+guide of `ExceptionLog` model and implement
 `Taecontrol\MoonGuard\Contracts\MoonGuardExceptionLogGroup` and `ExceptionLogGroup.php`
 
 Please check the [model reference](./create-a-custom-exception-model#model-reference)

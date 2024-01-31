@@ -46,7 +46,7 @@ With this, all your sites uptime status will be updated every minute.
 
 ## Scheduling CheckSslCertificate Command
 
-The CheckSslCertificateCommand can also be scheduled using Laravel's command Scheduler
+The `CheckSslCertificateCommand` can also be scheduled using Laravel's command Scheduler
 and specify when the command should run in the schedule method.
 
 ```php
@@ -73,12 +73,12 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-In this case, we can set the **`CheckSslCertificateCommand`** to run every
+In this case, we can set the `CheckSslCertificateCommand` to run every
 2 hours.
 
 ## Scheduling DeleteOldException Command
 
-The DeleteOldExceptionCommand deletes all exceptions that are older than 7 days
+The `DeleteOldExceptionCommand` deletes all exceptions that are older than 7 days
 by default. You can change its behavior in the configuration file.
 
 ```php

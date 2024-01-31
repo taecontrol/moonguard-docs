@@ -7,10 +7,10 @@ sidebar_position: 2
 # Creating a custom SslCertificateCheck model
 
 If you want to add new features or improve the original MoonGuard
-SslCertificateCheck model, we allow you to create a custom SslCertificateCheck
+`SslCertificateCheck` model, we allow you to create a custom `SslCertificateCheck`
 Model for your project doing the following steps.
 
-1. Create a new **SslCertificateCheck** class that extends from 
+1. Create a new `SslCertificateCheck` class that extends from 
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck` interface.
 
