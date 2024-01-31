@@ -98,6 +98,6 @@ protected function schedule(Schedule $schedule): void
 
 The `MoonGuardCommandsScheduler` is scheduled by running `php artisan schedule:run`.
 
-It is not mandatory to use the `MoonGuardCommandsScheduler`. If you wish to
-program the commands individually, please review the [commands section](./commands.md).
+Using the `MoonGuardCommandsScheduler` is not a requirement. If you prefer to program
+the commands individually, we recommend that you refer to the [commands section](./commands.md)
 
