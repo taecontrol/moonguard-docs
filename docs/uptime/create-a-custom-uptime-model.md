@@ -7,10 +7,10 @@ sidebar_position: 2
 # Creating a custom UptimeCheck Model
 
 If you want to add new features or improve the original MoonGuard UptimeCheck
-model, we allow you to create a custom UptimeCheck Model for your project doing
+model, we allow you to create a custom `UptimeCheck` Model for your project doing
 the following steps.
 
-1. Create a new **UptimeCheck** class that extends from 
+1. Create a new `UptimeCheck` class that extends from 
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardUptimeCheck` interface.
 
@@ -29,16 +29,31 @@ the following steps.
 1. Implement all the properties and methods required, you can guide yourself with
 the [model reference](./create-a-custom-uptime-model#model-Reference).
 
-2. Replace the new Uptime Check model class in the configuration file.
+2. Replace the new `UptimeCheck` model class in the configuration file.
 
   ```php
   <?php
   [
     'uptime_check' => [
       /*
+       * Enable or disable uptime checks globally.
+       */
+      'enabled' => true,
+
+      /*
        * The uptime check model to use.
        */
       'model' => \Taecontrol\MoonGuard\Models\UptimeCheck::class, -> //replace model
+
+      /*
+       * The number of consecutive failures before a notification should be sent.
+       */
+      'notify_failed_check_after_consecutive_failures' => 1,
+
+      /*
+       * How often a notification is resent after the uptime check fails
+      */
+      'resend_uptime_check_failed_notification_every_minutes' => 5,
     ],
   ]
   ```

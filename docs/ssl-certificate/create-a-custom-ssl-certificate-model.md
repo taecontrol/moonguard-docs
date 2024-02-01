@@ -7,10 +7,10 @@ sidebar_position: 2
 # Creating a custom SslCertificateCheck model
 
 If you want to add new features or improve the original MoonGuard
-SslCertificateCheck model, we allow you to create a custom SslCertificateCheck
+`SslCertificateCheck` model, we allow you to create a custom `SslCertificateCheck`
 Model for your project doing the following steps.
 
-1. Create a new **SslCertificateCheck** class that extends from 
+1. Create a new `SslCertificateCheck` class that extends from 
 `Illuminate\Database\Eloquent\Model` and implements the 
 `Taecontrol\MoonGuard\Contracts\MoonGuardSslCertificateCheck` interface.
 
@@ -33,17 +33,23 @@ with [model reference](./create-a-custom-ssl-certificate-model#model-reference).
 
   ```php
   <?php
+  [
+    'ssl_certificate_check' => [
+      /*
+       * Enable or disable ssl certificate checks globally.
+       */
+      'enabled' => true,
 
-  'ssl_certificate_check' => [
-    /*
-     * Enable or disable ssl certificate checks globally.
-     */
-    'enabled' => true,
+      /*
+       * The ssl certificate check model to use.
+       */
+      'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class, -> // replace model
 
-    /*
-     * The ssl certificate check model to use.
-     */
-    'model' => \Taecontrol\MoonGuard\Models\SslCertificateCheck::class,
+      /*
+       * The number of days before a certificate expires to send a notification.
+       */
+      'notify_expiring_soon_if_certificate_expires_within_days' => 7,
+    ]
   ]
   ```
 

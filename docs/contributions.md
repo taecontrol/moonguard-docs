@@ -1,7 +1,7 @@
 ---
 id: contributions
 slug: /contributions
-sidebar_position: 11
+sidebar_position: 14
 ---
 
 # Contributions Guide

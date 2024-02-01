@@ -28,7 +28,12 @@ composer require taecontrol/moonguard
 
 Publish the MoonGuard assets files and migrations file in your project.
 
-```php
+:::caution Heads Up
+If you have already published Moonguard Migrations before its release, please
+refer to the migration [documentation](./migrations) for any updates.
+:::
+
+```bash
 php artisan vendor:publish --tag="moonguard-assets"
 
 php artisan vendor:publish --tag="moonguard-migrations"
@@ -53,7 +58,7 @@ php artisan make:filament-user
 
  Login and you will land in the dashboard
 
-![dashboard](./installation/dashboard.png)
+![dasboard](./installation/dashboard.png)
 
 ## Moonguard Command Scheduler
 
@@ -62,16 +67,17 @@ Moonguard commands related to checks:
 
 - CheckUptimeCommand.
 - CheckSslCertificateCommand.
-- DeleteOldExceptionCommand.
-
+- PruneExceptionCommand.
+- PruneServerMetricCommand.
 
 You can use this utility to set up MoonGuard task scheduling faster.
 
-In order to use this utility, define a new schedule in your app and inside the
-`schedule` method of **`app/Console/Kernel.php`** . Use the static function
-`scheduleMoonGuardCommands()` from the **MCS** class, then pass the `$schedule`
-object and three cron strings (one for the Uptime Check, one for the SSL
-Certificate Check and one for delete old Exceptions that is optional):
+To utilize this utility, first define a new schedule in your app. Then, within
+the `schedule()` method of `app/Console/Kernel.php`, call the static function
+`scheduleMoonGuardCommands()` from the `MoonguardCommandScheduler` class. Pass the
+`$schedule` object and three cron strings to this function. These strings
+correspond to the Uptime Check, the SSL Certificate Check, and optionally, the
+deletion of old Exceptions.
 
 ```php
 <?php
@@ -85,109 +91,14 @@ protected function schedule(Schedule $schedule): void
     $schedule,
     '* * * * *', // <-- Uptime Check Cron
     '* * * * *', //<-- SSL Certificate Cron
-    '* * * * *' //<-- [Optional] Delete Exceptions Cron
+    '0 0 * * *', //<-- [Optional] Prune Exceptions Cron
+    '0 0 * * *' //<-- [Optional] Prune Server Metrics
   );
 }
 ```
 
-The MoonGuardCommandsScheduler is scheduled by running `php artisan schedule:run`.
-In case you want to setup individually each command  you can do it as following:
+The `MoonGuardCommandsScheduler` is scheduled by running `php artisan schedule:run`.
 
-## Scheduling CheckUptime Command
+Using the `MoonGuardCommandsScheduler` is not a requirement. If you prefer to program
+the commands individually, we recommend that you refer to the [commands section](./commands.md)
 
-Scheduling the Uptime Check can be done through the `CheckUptimeCommand` class
-and Laravel's command scheduler.
-
-Go to **`app/Console/Kernel.php`** and use the `CheckUptimeCommand` class and
-add schedule dthe command in the `schedule()` method:
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\CheckUptimeCommand;
-
-class Kernel extends ConsoleKernel
-{
-  //...
-   /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-    $schedule->command(CheckUptimeCommand::class)->everyMinute();
-  }
-}
-```
-
-With this, all your sites uptime status will be updated every minute.
-
-## Scheduling CheckSslCertificate Command
-
-The CheckSslCertificateCommand can also be scheduled using Laravel's command Scheduler
-and specify when the command should run in the schedule method.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\CheckSslCertificateCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-      $schedule->command(CheckSslCertificateCommand::class)->everyTwoHours();
-  }
-}
-```
-
-In this case, we can set the **`CheckSslCertificateCommand`** to run every
-2 hours.
-
-## Scheduling DeleteOldException Command
-
-The DeleteOldExceptionCommand deletes all exceptions that are older than 7 days
-by default. You can change its behavior in the configuration file. Like other
-commands, you can schedule it using Laravel's command Scheduler.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Taecontrol\MoonGuard\Console\Commands\DeleteOldExceptionCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-   * Define the application's command schedule.
-   *
-   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-   * @return void
-   */
-  protected function schedule(Schedule $schedule)
-  {
-      $schedule->command(DeleteOldExceptionCommand::class)->daily();
-  }
-}
-```
-
-For more scheduling options, please refer to the [Laravel documentation](https://laravel.com/docs/10.x/scheduling#schedule-frequency-options).

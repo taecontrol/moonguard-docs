@@ -1,7 +1,7 @@
 ---
 id: create-a-custom-user-model
 slug: /create-a-custom-user-model
-sidebar_position: 9
+sidebar_position: 11
 ---
 
 # Create a custom user model
