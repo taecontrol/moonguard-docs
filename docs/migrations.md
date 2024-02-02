@@ -190,31 +190,3 @@ class CreateMoonGuardTables extends Migration {
     }
 };
 ```
-
-## add_server_monitoring_fields_on_sites_table.php:
-
-```php
-
-<?php
-
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class AddSMFieldsOnSitesTable extends Migration
-{
-    public function up()
-    {
-        Schema::table('sites', function (Blueprint $table) {
-            $table->boolean('server_monitoring_notification_enabled')->default(false);
-            $table->integer('cpu_limit')->nullable();
-            $table->integer('ram_limit')->nullable();
-            $table->integer('disk_limit')->nullable();
-        });
-    }
-}
-```
-
-
-
-
