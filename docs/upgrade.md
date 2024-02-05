@@ -20,9 +20,82 @@ It also includes break changes, mostly related to class names, new configuration
 file and updated migrations. This guide explains how to upgrade your project to
 v1.2.0
 
-## Renamed Classes
+## Update custom Site model
+
+When creating a custom `site` model, make sure to include any new variables for
+the `site` table in both the `$fillable` and `$cast` variables. Additionally, don't
+forget to add the `serverMetrics()` relation method.
+
+```php
+
+<?php
+
+namespace Taecontrol\MoonGuard\Models;
+
+use Spatie\Url\Url;
+use Illuminate\Database\Eloquent\Model;
+//...
+
+class Site extends Model implements MoonGuardSite
+{
+    use HasFactory;
+
+    protected $fillable = [
+        //...
+        'cpu_limit',
+        'ram_limit',
+        'disk_limit',
+        'server_monitoring_notification_enabled',
+    ];
+
+    protected $casts = [
+        //...
+        'server_monitoring_notification_enabled' => 'boolean',
+    ];
 
 
+    public function serverMetrics(): HasMany
+    {
+        return $this->hasMany(ServerMetric::class);
+    }
+
+```
+
+## Commands
+
+The `MoonGuardCommandScheduler` is being updated to include a new
+`PruneServerMetricCommand` and to change the `DeleteOldExceptionCommand` class to
+`PruneExceptionCommand`. Therefore, you need to ensure that you add these changes
+to your scheduler.
+
+```php
+
+<?php
+
+use Taecontrol\MoonGuard\Console\MoonGuardCommandsScheduler;
+//...
+
+protected function schedule(Schedule $schedule): void
+{
+  MoonGuardCommandsScheduler::scheduleMoonGuardCommands(
+    $schedule,
+    //...
+    '0 0 * * *', //<-- [Optional] Prune Exceptions Cron
+    '0 0 * * *' //<-- [Optional] Prune Server Metrics
+  );
+}
+```
+
+In case that you have a custom Exception Command setup,
+Change the `DeleteOldExceptionCommand` class to `PruneExceptionCommand`in your
+`console/kernel.php` file.
+
+```php
+
+<?php
+//...
+use Taecontrol\MoonGuard\Console\Commands\PruneExceptionCommand;
+```
 
 
 ## Upgrade Migrations
@@ -80,8 +153,9 @@ class CreateMoonGuardTables extends Migration
 
 ```
 
-Also, new fields in the Site table `server_monitoring_notification_enabled`,
-`cpu_limit`, `ram_limit`, and `disk_limit` were added.
+In addition, new fields have been added to the Site table, including
+`server_monitoring_notification_enabled`, `cpu_limit`, `ram_limit`, and
+`disk_limit`.
 
 ```php
 <?php
@@ -111,15 +185,14 @@ class CreateMoonGuardTables extends Migration
                 $table->timestamps();
             });
 ```
-if you want to see the full migration file, please refers to
-[migrations docs](./migrations.md))
+If you want to see the full migration file, please refers to
+[migrations doc](./migrations.md))
 
 ## Upgrade config
 
-We have updated our `moonguard.php` configuration file to add the server metrics
-features.
-
-We have changed the `exception_deletion` config to `prune_deletion`.
+We have updated our `moonguard.php` configuration file to incorporate the server
+metrics features. As part of this update, we have changed the
+`exception_deletion` configuration to `prune_deletion`.
 
 ```php
 <?php
@@ -139,8 +212,8 @@ We have changed the `exception_deletion` config to `prune_deletion`.
 ]
 ```
 
-we have also added the `prune_server_monitoring` config, the `ServerMetricAlertEvent`
-and `ServerMetricAlertListener` classes in the event array.
+We have also included the `prune_server_monitoring` configuration and added the
+`ServerMetricAlertEvent` and `ServerMetricAlertListener` classes to the event array.
 
 ```php
 
@@ -181,4 +254,4 @@ and `ServerMetricAlertListener` classes in the event array.
 ]
 ```
 
-Please refers to [config doc](./configuration.md)) to see the full file.
+Please refers to [config doc](./configuration.md)) for more information.
