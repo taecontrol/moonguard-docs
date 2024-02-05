@@ -24,6 +24,7 @@ v1.2.0
 
 
 
+
 ## Upgrade Migrations
 
 MoonGuard 1.2.0, updated the `create_moonguard_tables.php.stub` file with the new
@@ -115,15 +116,69 @@ if you want to see the full migration file, please refers to
 
 ## Upgrade config
 
+We have updated our `moonguard.php` configuration file to add the server metrics
+features.
 
+We have changed the `exception_deletion` config to `prune_deletion`.
 
-Delete the all `config/moonguard.php` file and republish it using:
+```php
+<?php
+[
+  //...
+  'prune_exception' => [
+    /*
+     * Enable or disable pruning exceptions data.
+     */
+    'enabled' => true,
 
-```bash
-php artisan vendor:publish --tag="moonguard-config"
+    /*
+     * Eliminates exceptions that are older than 7 days.
+     */
+    'prune_exceptions_older_than_days' => 7,
+  ],
+]
 ```
 
+we have also added the `prune_server_monitoring` config, the `ServerMetricAlertEvent`
+and `ServerMetricAlertListener` classes in the event array.
 
+```php
 
+<?php
 
+[
+  'prune_server_monitoring' => [
+    /*
+    * Enables or disables pruning server monitoring data.
+    */
+    'enabled' => true,
 
+    /*
+    * Deletes server monitoring logs that are older than 7 days..
+    */
+    'prune_server_monitoring_records_older_than_days' => 7,
+  ],
+]
+```
+
+```php
+
+<?php
+
+[
+  'events' => [
+    /*
+    * the events that can be listened for.
+    * you can add your own listeners here.
+    */
+    'listen' => [
+      //...
+      \Taecontrol\MoonGuard\Events\ServerMetricAlertEvent::class => [
+          \Taecontrol\MoonGuard\Listeners\ServerMetricAlertListener::class,
+      ],
+    ],
+  ],
+]
+```
+
+Please refers to [config doc](./configuration.md)) to see the full file.
