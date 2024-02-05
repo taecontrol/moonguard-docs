@@ -26,7 +26,17 @@ v1.2.0
 
 ## Upgrade Migrations
 
+MoonGuard 1.2.0, updated the `create_moonguard_tables.php.stub` file with the new
+`server_metrics`table and a new variable in the new Site table
+`server_monitoring_notification_enabled`. To change this file, please add the new
+campus in your existing migrations (refers to [migrations docs](./migrations.md))
+or delete the old migrations and re publish it by using.
 
+```bash
+php artisan vendor:publish --tag="moonguard-assets"
+
+php artisan vendor:publish --tag="moonguard-migrations"
+```
 
 ## Upgrade config
 
