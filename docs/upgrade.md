@@ -186,7 +186,7 @@ class CreateMoonGuardTables extends Migration
             });
 ```
 If you want to see the full migration file, please refers to
-[migrations doc](./migrations.md))
+[migrations documentation](./migrations.md).
 
 ## Upgrade config
 
@@ -254,4 +254,4 @@ We have also included the `prune_server_monitoring` configuration and added the
 ]
 ```
 
-Please refers to [config doc](./configuration.md)) for more information.
+Please refers to [config documentation](./configuration.md) for more information.
