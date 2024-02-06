@@ -1,7 +1,7 @@
 ---
 id: Server Monitoring
 slug: /server-monitoring
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 MoonGuard provides a server monitoring feature that allows you to track

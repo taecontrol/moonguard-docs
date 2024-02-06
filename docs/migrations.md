@@ -1,7 +1,7 @@
 ---
 id: migrations
 slug: /migrations
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Migrations
@@ -12,12 +12,9 @@ publish them using:
 ```bash
 php artisan vendor:publish --tag="moonguard-migrations"
 ```
-In case you need a particular table you can make your own migration file and use
-our Schema instruction in your project.
 
-## create_moonguard_tables.php:
 
-```php
+```php title="create_moonguard_tables.php"
 
 <?php
 
