@@ -86,9 +86,8 @@ protected function schedule(Schedule $schedule): void
 }
 ```
 
-In case that you have a custom Exception Command setup,
-Change the `DeleteOldExceptionCommand` class to `PruneExceptionCommand`in your
-`console/kernel.php` file.
+In case that you're using `DeleteOldExceptionCommand` you need to replace it with
+the new `PruneExceptionCommand`, in your `console/kernel.php` file.
 
 ```php
 
@@ -100,8 +99,7 @@ use Taecontrol\MoonGuard\Console\Commands\PruneExceptionCommand;
 
 ## Upgrade Migrations
 
-MoonGuard 1.2.0, updated the `create_moonguard_tables.php.stub` file with the new
-`server_metrics`table as following.
+We updated the main migration stub file adding a new `server_metrics` table:
 
 ```php
 
