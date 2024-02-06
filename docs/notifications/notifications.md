@@ -14,6 +14,7 @@ MoonGuard ships with some notifications for multiple use cases and scenarios, th
 - Uptime Check Failed.
 - Uptime Check Recovered.
 - New Exception Log Group.
+- Server Metric alert.
 
 MoonGuard use an email channel to send notifications by default. You can also add a
 [slack channel](./notification-slack) in the notification

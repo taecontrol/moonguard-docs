@@ -133,29 +133,29 @@ return [
          * you can add your own listeners here.
          */
         'listen' => [
-            \taecontrol\moonguard\events\uptimecheckrecoveredevent::class => [
-                \taecontrol\moonguard\listeners\uptimecheckrecoveredlistener::class,
+            \Taecontrol\MoonGuard\Events\UptimeCheckRecoveredEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\UptimeCheckRecoveredListener::class,
             ],
-            \taecontrol\moonguard\events\uptimecheckfailedevent::class => [
-                \taecontrol\moonguard\listeners\uptimecheckfailedlistener::class,
+            \Taecontrol\MoonGuard\Events\UptimeCheckFailedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\UptimeCheckFailedListener::class,
             ],
-            \taecontrol\moonguard\events\requesttooklongerthanmaxdurationevent::class => [
-                \taecontrol\moonguard\listeners\requesttooklongerthanmaxdurationlistener::class,
+            \Taecontrol\MoonGuard\Events\RequestTookLongerThanMaxDurationEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\RequestTookLongerThanMaxDurationListener::class,
             ],
-            \taecontrol\moonguard\events\sslcertificateexpiressoonevent::class => [
-                \taecontrol\moonguard\listeners\sslcertificateexpiressoonlistener::class,
+            \Taecontrol\MoonGuard\Events\SslCertificateExpiresSoonEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\SslCertificateExpiresSoonListener::class,
             ],
-            \taecontrol\moonguard\events\sslcertificatecheckfailedevent::class => [
-                \taecontrol\moonguard\listeners\sslcertificatecheckfailedlistener::class,
+            \Taecontrol\MoonGuard\Events\SslCertificateCheckFailedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\SslCertificateCheckFailedListener::class,
             ],
-            \taecontrol\moonguard\events\exceptionloggroupcreatedevent::class => [
-                \taecontrol\moonguard\listeners\exceptionloggroupcreatedlistener::class,
+            \Taecontrol\MoonGuard\Events\ExceptionLogGroupCreatedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupCreatedListener::class,
             ],
-            \taecontrol\moonguard\events\exceptionloggroupupdatedevent::class => [
-                \taecontrol\moonguard\listeners\exceptionloggroupupdatedlistener::class,
+            \Taecontrol\MoonGuard\Events\ExceptionLogGroupUpdatedEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ExceptionLogGroupUpdatedListener::class,
             ],
-            \taecontrol\moonguard\events\servermetricalertevent::class => [
-                \taecontrol\moonguard\listeners\servermetricalertlistener::class,
+            \Taecontrol\MoonGuard\Events\ServerMetricAlertEvent::class => [
+                \Taecontrol\MoonGuard\Listeners\ServerMetricAlertListener::class,
             ],
         ],
     ],
