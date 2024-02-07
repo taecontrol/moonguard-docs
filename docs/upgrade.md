@@ -1,7 +1,7 @@
 ---
 id: upgrade
 slug: /upgrade
-sidebar_position: 14
+sidebar_position: 3
 ---
 
 # Upgrade Guide
@@ -53,12 +53,12 @@ class Site extends Model implements MoonGuardSite
         'server_monitoring_notification_enabled' => 'boolean',
     ];
 
-
+    //...
     public function serverMetrics(): HasMany
     {
         return $this->hasMany(ServerMetric::class);
     }
-
+}
 ```
 
 ## Commands
@@ -97,94 +97,97 @@ use Taecontrol\MoonGuard\Console\Commands\PruneExceptionCommand;
 ```
 
 
-## Upgrade Migrations
+## Migrations
 
-We updated the main migration stub file adding a new `server_metrics` table:
+We have updated the main migration stub file to include a new `server_metrics`
+table. Additionally, we have added new fields to the Site table, such as
+`server_monitoring_notification_enabled`, `cpu_limit`, `ram_limit`, and `disk_limit`,
+to support the new server monitoring feature.
+
+This changes on the database structure implies adding two migration files:
+
+```bash
+php artisan make:migration create_server_metrics_tables
+php artisan make:migration create_update_sites_table
+```
+
+Then add the following structure:
+
+### create_server_metrics_tables
 
 ```php
 
-
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Taecontrol\MoonGuard\Enums\UptimeStatus;
 use Illuminate\Database\Migrations\Migration;
-use Taecontrol\MoonGuard\Enums\ExceptionLogStatus;
-use Taecontrol\MoonGuard\Enums\SslCertificateStatus;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Taecontrol\MoonGuard\Repositories\SiteRepository;
-use Taecontrol\MoonGuard\Repositories\ExceptionLogGroupRepository;
 
-class CreateMoonGuardTables extends Migration
+return new class extends Migration
 {
-    public function up()
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
-      //...
-      if (! Schema::hasTable('server_metrics')) {
-          Schema::create('server_metrics', function (Blueprint $table) {
-              $table->id();
-              $table->integer('cpu_load');
-              $table->integer('memory_usage');
-              $table->json('disk_usage');
-              $table->foreignIdFor(SiteRepository::resolveModelClass())
-                  ->constrained()
-                  ->cascadeOnDelete()
-                  ->cascadeOnUpdate();
+        Schema::create('server_metrics', function (Blueprint $table) {
+            $table->id();
+            $table->integer('cpu_load');
+            $table->integer('memory_usage');
+            $table->json('disk_usage');
+            $table->foreignIdFor(SiteRepository::resolveModelClass())
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
-              $table->timestamps();
-          });
-      }
-
+            $table->timestamps();
+        });
     }
 
-
-    public function down()
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
     {
+        Schema::table('server_metrics', function (Blueprint $table) {
+            $table->dropForeignIdFor(SiteRepository::resolveModelClass());
+        });
 
-      //...
-      Schema::table('server_metrics', function (Blueprint $table) {
-          $table->dropForeignIdFor(SiteRepository::resolveModelClass());
-      });
-
-      //..
-      Schema::dropIfExists('server_metrics');
-
+        Schema::dropIfExists('server_metrics');
+    }
+};
 ```
 
-In addition, new fields have been added to the Site table, including
-`server_monitoring_notification_enabled`, `cpu_limit`, `ram_limit`, and
-`disk_limit`.
+### create_update_sites_table
 
 ```php
 <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
-use Taecontrol\MoonGuard\Enums\UptimeStatus;
 use Illuminate\Database\Migrations\Migration;
-use Taecontrol\MoonGuard\Enums\ExceptionLogStatus;
-use Taecontrol\MoonGuard\Enums\SslCertificateStatus;
-use Taecontrol\MoonGuard\Repositories\SiteRepository;
-use Taecontrol\MoonGuard\Repositories\ExceptionLogGroupRepository;
 
-class CreateMoonGuardTables extends Migration
+return new class extends Migration
 {
     public function up()
     {
-        if (! Schema::hasTable('sites')) {
-            Schema::create('sites', function (Blueprint $table) {
-                //...
-                $table->boolean('server_monitoring_notification_enabled')->default(false);
-                $table->integer('cpu_limit')->nullable();
-                $table->integer('ram_limit')->nullable();
-                $table->integer('disk_limit')->nullable();
-                $table->string('api_token', 60)->nullable();
-
-                $table->timestamps();
-            });
+        Schema::table('sites', function (Blueprint $table) {
+            $table->boolean('server_monitoring_notification_enabled')->default(false);
+            $table->integer('cpu_limit')->nullable();
+            $table->integer('ram_limit')->nullable();
+            $table->integer('disk_limit')->nullable();
+        });
+    }
+};
 ```
-If you want to see the full migration file, please refers to
-[migrations documentation](./migrations.md).
+
+Finally run the migrations to update the database.
+
+```bash
+php artisan migrate
+```
+Please refers to [migrations documentation](./migrations.md) for more information.
 
 ## Upgrade config
 
@@ -218,6 +221,7 @@ We have also included the `prune_server_monitoring` configuration and added the
 <?php
 
 [
+  //...
   'prune_server_monitoring' => [
     /*
     * Enables or disables pruning server monitoring data.
@@ -237,6 +241,7 @@ We have also included the `prune_server_monitoring` configuration and added the
 <?php
 
 [
+  //...
   'events' => [
     /*
     * the events that can be listened for.

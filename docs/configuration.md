@@ -1,7 +1,7 @@
 ---
 id: configuration
 slug: /configuration
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Configuration
