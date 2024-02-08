@@ -107,13 +107,13 @@ to support the new server monitoring feature.
 This changes on the database structure implies adding two migration files:
 
 ```bash
-php artisan make:migration create_server_metrics_tables
-php artisan make:migration create_update_sites_table
+php artisan make:migration create_server_metrics_table
+php artisan make:migration update_sites_table
 ```
 
 Then add the following structure:
 
-### create_server_metrics_tables
+### create_server_metrics_table
 
 ```php
 
@@ -159,7 +159,7 @@ return new class extends Migration
 };
 ```
 
-### create_update_sites_table
+### update_sites_table
 
 ```php
 <?php
