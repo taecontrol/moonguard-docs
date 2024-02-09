@@ -6,8 +6,7 @@ sidebar_position: 13
 
 # Commands
 
-If you choose not to use the `MoonGuardCommandScheduler`, you can set up each
-command individually as follows:
+If you choose not to use the `MoonGuardCommandScheduler`, you can set up each command individually as follows:
 
 ## Scheduling CheckUptime Command
 
