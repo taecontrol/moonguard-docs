@@ -6,8 +6,7 @@ sidebar_position: 4
 
 # Migrations
 
-Here are the latest migrations and tables used in MoonGuard. You can always
-publish them using:
+Here are the latest migrations and tables used in MoonGuard. You can always publish them using:
 
 ```bash
 php artisan vendor:publish --tag="moonguard-migrations"

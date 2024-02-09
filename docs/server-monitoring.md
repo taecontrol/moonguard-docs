@@ -4,10 +4,7 @@ slug: /server-monitoring
 sidebar_position: 11
 ---
 
-MoonGuard provides a server monitoring feature that allows you to track
-hardware variables of your server. It works with the `CheckHardwareHealthCommand`
-from [Larvis](https://github.com/taecontrol/larvis/tree/1.alpha?tab=readme-ov-file#commands)
-to monitor the CPU load, memory, and total disk usage.
+MoonGuard provides a server monitoring feature that allows you to track hardware variables of your server. It works with the `CheckHardwareHealthCommand` from [Larvis](https://github.com/taecontrol/larvis/tree/1.alpha?tab=readme-ov-file#commands) to monitor the CPU load, memory, and total disk usage.
 
 ## Scheduling CheckHardwareHealth command
 
