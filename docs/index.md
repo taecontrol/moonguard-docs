@@ -6,9 +6,7 @@ sidebar_position: 1
 
 # Meet MoonGuard
 
-Moonguard is an open source [Filament](https://filamentphp.com/) plugin that
-aims to provide utilities to monitor all your Laravel applications in production
-from a single place.
+Moonguard is an open source [Filament](https://filamentphp.com/) plugin that aims to provide utilities to monitor all your Laravel applications in production from a single place.
 
 MoonGuard helps you track important features like SSL certificates status, uptime,
 and exceptions on your applications. By doing so, you can detect issues quickly
