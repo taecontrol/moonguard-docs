@@ -10,10 +10,10 @@ sidebar_position: 2
 
 Before using MoonGuard, make sure you have the following installed:
 
-- Laravel Framework 10+
+- Laravel Framework 11+
 - Filament 3.0+
 - Composer
-- Node.js (Version 18+)
+- Node.js +18
 
 Filament is necessary to use MoonGuard in your project, you can install Filament
 by following the official documentation [here](https://filamentphp.com/docs/3.x/panels/installation).
@@ -23,7 +23,7 @@ Once you setup your Laravel project with filament, you can install MoonGuard
 plugin via composer
 
 ```bash
-composer require taecontrol/moonguard
+composer require taecontrol/moonguard -W
 ```
 
 Publish the MoonGuard assets files and migrations file in your project.
