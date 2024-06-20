@@ -48,9 +48,9 @@ const config = {
 
   scripts: [
     {
-      src: 'https://analytics.docs.moonguard.dev/script.js',
+      src: 'https://analytics.taecontrol.com/script.js',
       defer: true,
-      'data-site': 'FJKXMHQW',
+      'data-website-id': 'e86b7d19-394a-4e6c-a4a4-dd78952ba52b'
     }
   ],
 
